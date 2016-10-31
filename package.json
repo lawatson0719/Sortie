@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "webpack --watch",
+    "build:js": "webpack",
     "postinstall": "cp node_modules/jquery/dist/jquery.js lib/ && cp node_modules/normalize.css/normalize.css lib/"
   },
   "author": "",
