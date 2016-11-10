@@ -1,3 +1,4 @@
 .DS_Store
-no-debug.log*
+npm-debug.log*
 node_modules/
+db.json

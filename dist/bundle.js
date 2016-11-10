@@ -26345,6 +26345,8 @@
 
 	var Link = __webpack_require__(172).Link;
 
+	app.use(bodyParser());
+
 	function getActiveClass(path) {
 		var current = window.location.hash.slice(1);
 		return current === path ? 'active' : '';
