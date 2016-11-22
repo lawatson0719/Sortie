@@ -1,7 +1,7 @@
 var express = require('express');
 var lowdb = require('lowdb');
 var fileAsync = require('lowdb/lib/file-async');
-var shortif = requre('shortid');
+var shortid = require('shortid');
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -17,6 +17,6 @@ app.use(bodyParser());
 app.use(express.static(__dirname + '/public'))
 app.use(express.static(__dirname + '/dist'))
 app.use(express.static(__dirname + '/lib'))
-app.use(express.static(__dirname + '/src/css'))
+
 
 app.listen(port);
