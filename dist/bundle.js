@@ -37061,8 +37061,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(32);
 
 	var DroneDetails = __webpack_require__(239);
+	var DroneMap = __webpack_require__(240);
 
 	var DroneListItem = React.createClass({
 		displayName: 'DroneListItem',
@@ -37139,7 +37141,8 @@
 					null,
 					'Injured: ',
 					injuries
-				)
+				),
+				React.createElement('div', { id: 'container' })
 			);
 		},
 
@@ -37177,6 +37180,60 @@
 	});
 
 	module.exports = DroneDetails;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports) {
+
+	var React = window.React;
+	// var React = require('react');
+	// var ReactDOM = require('react-dom')
+	// var ReactLeaflet = require('react-leaflet')
+	// var Leaflet = require('leaflet')
+
+	import React from 'react';
+	import { render } from 'react-dom';
+	import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+
+	class DroneMap extends React.Component {
+	  constructor() {
+	    super();
+	    this.state = {
+	      lat: 15.47467,
+	      lon: 45.322755,
+	      zoom: 13
+	    };
+	  }
+
+	  render() {
+	    var position = [this.state.lat, this.state.lon];
+	    return React.createElement(
+	      Map,
+	      { center: position, zoom: this.state.zoom },
+	      React.createElement(TileLayer, {
+	        attribution: '\xA9 <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+	        url: 'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
+	      }),
+	      React.createElement(
+	        Marker,
+	        { position: position },
+	        React.createElement(
+	          Popup,
+	          null,
+	          React.createElement(
+	            'span',
+	            null,
+	            'Marib Province. ',
+	            React.createElement('br', null),
+	            ' 6 deaths.'
+	          )
+	        )
+	      )
+	    );
+	  }
+	}
+
+	window.ReactDOM.render(React.createElement(DroneMap, null), document.getElementById('container'));
 
 /***/ }
 /******/ ]);

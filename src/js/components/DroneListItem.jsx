@@ -1,6 +1,9 @@
 var React = require('react');
+var ReactDOM = require('react-dom')
+
 
 var DroneDetails = require('./DroneDetails.jsx');
+var DroneMap = require('./DroneMap.jsx');
 
 var DroneListItem = React.createClass({
 
@@ -41,6 +44,7 @@ var DroneListItem = React.createClass({
 				<p>Civilians: {civilians}</p>
 				<p>Children: {children}</p>
 				<p>Injured: {injuries}</p>
+				<div id="container"></div>
 				
 			</div>
 		);
@@ -55,5 +59,6 @@ var DroneListItem = React.createClass({
 		});
 	}
 });
+
 
 module.exports = DroneListItem;
