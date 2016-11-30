@@ -1,0 +1,19 @@
+
+#mapid { 
+	height: 250px; 
+	width: 250px;
+	border-width: 3px;
+}
+
+.leaflet-container {
+  height: 300px;
+  width: 500px;
+}
+
+
+@import 'layout/mainlayout.scss';
+
+body {
+	background-color: blue;
+}
+
