@@ -1,4 +1,5 @@
 
+
 #mapid { 
 	height: 250px; 
 	width: 250px;
@@ -16,4 +17,14 @@
 body {
 	background-color: blue;
 }
+
+
+
+@import 'basicStyles/colors';
+@import 'basicStyles/main-base';
+
+@import 'layout/body';
+@import 'layout/header';
+
+@import 'utils/main-utils';
 
