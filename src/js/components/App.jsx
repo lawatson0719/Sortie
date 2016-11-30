@@ -1,5 +1,7 @@
 var React = require('react');
 
+var DroneList = require('./DroneList.jsx')
+
 var Link = require('react-router').Link;
 
 function getActiveClass (path) {
@@ -16,8 +18,8 @@ var App = React.createClass({
 					<Link to="/" className={getActiveClass('/')}>Home</Link>
 				</header>
 				<main>
-					<h1>App</h1>
-					{this.props.children}
+					<h1>Drone Strikes</h1>
+					<DroneList />
 				</main>
 			</div>
 		)
@@ -25,3 +27,5 @@ var App = React.createClass({
 })
 
 module.exports = App;
+
+
