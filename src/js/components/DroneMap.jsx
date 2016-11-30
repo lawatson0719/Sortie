@@ -1,25 +1,28 @@
-var React = window.React;
-// var React = require('react');
-// var ReactDOM = require('react-dom')
+// var React = window.React;
+var React    = require('react');
+var ReactDOM = require('react-dom');
 // var ReactLeaflet = require('react-leaflet')
 // var Leaflet = require('leaflet')
 
-import React from 'react';
-import { render } from 'react-dom';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+// import React from 'react';
+// import { render } from 'react-dom';
+var Map       = require('react-leaflet').Map;
+var Marker    = require('react-leaflet').Marker;
+var Popup     = require('react-leaflet').Popup;
+var TileLayer = require('react-leaflet').TileLayer;
 
-
-class DroneMap extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+// import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+var DroneMap = React.createClass({
+  getInitialState : function(){
+    
+    return {
       lat: 15.47467,
       lon: 45.322755,
       zoom: 13,
     };
-  }
+  },
 
-  render() {
+  render : function() {
     var position = [this.state.lat, this.state.lon];
     return (
       <Map center={position} zoom={this.state.zoom}>
@@ -35,6 +38,9 @@ class DroneMap extends React.Component {
       </Map>
     );
   }
-}
+});
 
-window.ReactDOM.render(<DroneMap />, document.getElementById('container'));
+
+module.exports = DroneMap;
+
+// ReactDOM.render( <DroneMap />, document.getElementById( 'container' ) );
