@@ -1,26 +1,15 @@
-
-
-#mapid { 
-	height: 250px; 
-	width: 250px;
-	border-width: 3px;
-}
-
-.leaflet-container {
-  height: 300px;
-  width: 500px;
-}
-
-
 @import 'basicStyles/colors';
 @import 'basicStyles/main-base';
+@import 'basicStyles/type-face';
+
 
 @import 'layout/body';
-@import 'layout/desktop';
 @import 'layout/footer';
 @import 'layout/header';
-@import 'layout/mobile-content';
-@import 'layout/tablet-content';
+@import 'layout/map-view';
+@import 'layout/stat-view';
 
 @import 'utils/main-utils';
+
+@import 'vendor-styles/leaflet';
 
