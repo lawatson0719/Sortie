@@ -1,0 +1,35 @@
+
+header {
+	background-color: $darkBlue;
+	height: 75px;
+	position: relative;
+}
+
+.logo-container {
+	width: 50%;
+}
+
+
+.logo {
+	height: 50px;
+	position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+nav {
+	width: 50%;
+	text-align: right;
+	a {
+		color: $lightBlue;
+		text-decoration: none;
+		background-color: $beige;
+		padding: 10px;
+		border-radius: 5px;
+		position: absolute;
+    	top: 18px;
+    	right: 18px;
+	}
+}
+
+
