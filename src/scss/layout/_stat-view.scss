@@ -1,9 +1,9 @@
 
 .graph {
 	height: 70vw;
-	width: 90vw;
+	width: 95vw;
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 20px;
 	background-color: #FFF;
 	border: 1px solid #D0D6D9;
 	.default {
@@ -15,7 +15,7 @@
 
 
 form {
-	margin: 0 5%;
+	margin: 0 2.5%;
 	.filter-container {
 		width: 33.33%;
 		float: left;
@@ -23,7 +23,7 @@ form {
 		height: 30px;
 		border-radius: 0;
 		.filters {
-			width: 90%;
+			width: 95%;
 			display: block;
 			height: 30px;
 			line-height: 30px;
@@ -36,14 +36,14 @@ form {
 			float: right;
 		}
 		.increment {
-			margin-left: 5%; 
+			margin-left: 2.5%; 
 		}	
 	}
 }
 
 
 .sort {
-	width: 90vw;
+	width: 95vw;
 	margin: 0 auto;
 	display: block;
 	height: 50px;
