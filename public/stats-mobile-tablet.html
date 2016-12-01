@@ -8,38 +8,47 @@
 </head>
 <body>
 	<header>
-		<img class="logo" src="assets/images/dronelogo.png">
+		<div class="logo-container">
+			<img class="logo" src="assets/images/dronelogo.png">
+		</div>
 		<nav>
 			<a href="map-mobile-tablet.html">MAP</a>
 		</nav>
 	</header>
 	<main>
 		<!-- stats -->
-		<div>STATS</div>
-		<section>Choose your stats</section>
+		<div class="graph">
+			<div class="default">Choose your stats</div>
+		</div>
 		<form>
-			<select>
-				<option value="Average">Average</option>
-				<option value="Total">Total</option>
-			</select>
-			<select>
-				<option value="Month">Month</option>
-				<option value="Year">Year</option>
-			</select>
-			<select>
-				<option value="Deaths">Deaths</option>
-				<option value="Strikes">Strikes</option>
-			</select>
+			<div class="filter-container">
+				<select class="filters numbers">
+					<option value="Average">Average</option>
+					<option value="Total">Total</option>
+				</select>
+			</div>
+			<div class="filter-container">
+				<select class="filters increment">
+					<option value="Month">Month</option>
+					<option value="Year">Year</option>
+				</select>
+			</div>	
+			<div class="filter-container">
+				<select class="filters type">
+					<option value="Deaths">Deaths</option>
+					<option value="Strikes">Strikes</option>
+				</select>
+			</div>
 			<br></br>
-			<button type="submit" value="Sort">Sort</button>
+			<button class="sort" type="submit" value="Sort">Sort</button>
 		</form>
 		<section>
 			<h2>Casualties</h2>
-			<div>
+			<div class="grandtotal">
 				<h3>Total Casualties</h3>
 				<div>Number</div>
 			</div>
-			<div>
+			<div class="civilgrandtotal">
 				<h3>Civilian Casualties</h3>
 				<div>Number</div>
 			</div>
