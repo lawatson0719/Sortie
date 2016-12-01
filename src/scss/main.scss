@@ -16,7 +16,11 @@
 @import 'basicStyles/main-base';
 
 @import 'layout/body';
+@import 'layout/desktop';
+@import 'layout/footer';
 @import 'layout/header';
+@import 'layout/mobile-content';
+@import 'layout/tablet-content';
 
 @import 'utils/main-utils';
 
