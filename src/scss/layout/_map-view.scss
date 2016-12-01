@@ -26,9 +26,14 @@ section {
 	margin-bottom: 5%;
 	h3 {
 		margin: 15px 0;
+		font-family: $libre;
+		font-weight: 300;
+		text-transform: uppercase;
 	}
 	div {
 		font-size: 56px;
+		font-family: $libre;
+		font-weight: 500;
 	}
 }
 
@@ -38,6 +43,16 @@ section {
 	p {
 		height: 50px;
 	}
+}
+
+a {
+	font-family: $libre;
+	font-weight: 700;
+}
+
+.dets {
+	font-family: $libre;
+	font-weight: 400;
 }
 
 
