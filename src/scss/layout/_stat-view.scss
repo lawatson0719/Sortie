@@ -31,6 +31,8 @@ form {
 			cursor: pointer;
 			outline: none;
 			background-color: #FFF;
+			font-family: $libre;
+			font-weight: 300;
 		}
 		.type {
 			float: right;
@@ -53,6 +55,9 @@ form {
 	box-shadow: 0px 3px 6px grey;
 }
 
-
-
+h2, .sort {
+	font-family: $libre;
+	font-weight: 500;
+	text-transform: uppercase;
+}
 
