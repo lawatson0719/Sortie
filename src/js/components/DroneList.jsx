@@ -29,6 +29,7 @@ var DroneList = React.createClass({
 		})
 		return (
 			<div>
+				<button onClick={this.handleLoadClick}>Load</button>
 				{droneListItems}
 			</div>
 		)
@@ -44,4 +45,3 @@ var DroneList = React.createClass({
 
 module.exports = DroneList;
 
-//<button onClick={this.handleLoadClick}>Load</button>
