@@ -14,7 +14,7 @@
 }
 
 
-form {
+.stats {
 	margin: 0 2.5%;
 	.filter-container {
 		width: 33.33%;
@@ -34,10 +34,10 @@ form {
 			font-family: $libre;
 			font-weight: 300;
 		}
-		.type {
+		.increment {
 			float: right;
 		}
-		.increment {
+		.type {
 			margin-left: 2.5%; 
 		}	
 	}
@@ -66,6 +66,10 @@ h2 {
 	text-transform: uppercase;
 }
 
+.description {
+	display: none;
+}
+
 
 @media (min-width: 800px) {
 
@@ -83,13 +87,38 @@ h2 {
 	}
 
 
-	form {
+	.stats {
 		width: 35%;
-		height: 100px; 
+		height: 75px; 
 		margin: 0 1.5%;
 		.filter-container {
-		float: left;
+			float: left;
+			margin-top: 25px;
 		}
 	}
+
+	.description {
+		display: block;
+		width: 35%;
+		height: 374px;
+		background-color: $lightBeige;
+		margin-left: 1.5%;
+		margin-top: 15px;
+		h2 {
+			padding-top: 30px;
+			width: 100%;
+			text-align: center;
+		}
+		p {
+			width: 75%;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 14px;
+			font-family: $libre;
+			font-weight: 300;
+		}
+	}
+
+
 
 }

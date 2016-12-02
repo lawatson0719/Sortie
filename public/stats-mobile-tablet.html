@@ -20,7 +20,7 @@
 		<div class="graph">
 			<!-- Put interactive graph here! -->
 		</div>
-		<form class="cf">
+		<form class="cf stats">
 			<div class="filter-container">
 				<select class="filters numbers">
 					<option value="Average">Average</option>
@@ -28,18 +28,25 @@
 				</select>
 			</div>
 			<div class="filter-container">
-				<select class="filters increment">
-					<option value="Month">Month</option>
-					<option value="Year">Year</option>
-				</select>
-			</div>	
-			<div class="filter-container">
 				<select class="filters type">
 					<option value="Strikes">Strikes</option>
 					<option value="Deaths">Deaths</option>
 				</select>
 			</div>
+			<div class="filter-container">
+				<select class="filters increment">
+					<option value="Month">Month</option>
+					<option value="Year">Year</option>
+				</select>
+			</div>		
 		</form>
+		<div class="description">
+			<h2>SUMMARY</h2>
+			<p class="default">Click data point on graph to show a brief summary
+				<!-- description shown here when dot on graph is clicked -->
+			</p>
+			
+		</div>
 		<section>
 			<h2>Casualties</h2>
 			<div id="totals" class="casualties">
