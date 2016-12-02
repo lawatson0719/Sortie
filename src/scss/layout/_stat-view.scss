@@ -55,9 +55,13 @@ form {
 	box-shadow: 0px 3px 6px grey;
 }
 
-h2, .sort {
+.sort {
 	font-family: $libre;
 	font-weight: 500;
 	text-transform: uppercase;
 }
-
+h2 {
+	font-family: $mont;
+	font-weight: 700;
+	text-transform: uppercase;
+}
