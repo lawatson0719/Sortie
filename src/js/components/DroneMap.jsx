@@ -4,6 +4,8 @@ var ReactDOM = require('react-dom');
 // var ReactLeaflet = require('react-leaflet')
 // var Leaflet = require('leaflet')
 
+var DroneDeaths = require('./DroneDeaths.jsx')
+
 // import React from 'react';
 // import { render } from 'react-dom';
 var Map       = require('react-leaflet').Map;
@@ -13,16 +15,22 @@ var TileLayer = require('react-leaflet').TileLayer;
 
 // import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 var DroneMap = React.createClass({
+  
   getInitialState : function(){
-    
+    var data = this.props.data
+    var _this = this;
+    var latitude = +data.lat;
+    var longitude = +data.lon;
+
     return {
-      lat: 15.47467,
-      lon: 45.322755,
-      zoom: 13,
+      lat: latitude,
+      lon: longitude,
+      zoom: 8,
     };
   },
 
   render : function() {
+    var data = this.props.data
     var position = [this.state.lat, this.state.lon];
     return (
       <Map center={position} zoom={this.state.zoom}>
@@ -32,7 +40,7 @@ var DroneMap = React.createClass({
         />
         <Marker position={position}>
           <Popup>
-            <span>Marib Province. <br/> 6 deaths.</span>
+            <span>Marib Province. <br/>6 deaths.</span>
           </Popup>
         </Marker>
       </Map>

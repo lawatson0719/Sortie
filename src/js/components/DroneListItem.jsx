@@ -8,6 +8,7 @@ var DroneLocation = require('./DroneLocation.jsx')
 var DroneCivilians = require('./DroneCivilians.jsx')
 var DroneDate = require('./DroneDate.jsx')
 var DroneMap = require('./DroneMap.jsx');
+var DroneLat = require('./DroneLat.jsx')
 
 var DroneListItem = React.createClass({
 
@@ -23,14 +24,16 @@ var DroneListItem = React.createClass({
 		// var { number, country, deaths } = this.props.data;
 
 		var data = this.props.data;
-		var number = data.number;
-		var country = data.country;
-		var location = data.location;
-		var deaths = data.deaths;
-		var civilians = data.civilians;
-		var injuries = data.injuries;
-		var children = data.children;
-		var date = data.date;
+		// var number = data.number;
+		// var country = data.country;
+		// var location = data.location;
+		// var deaths = data.deaths;
+		// var civilians = data.civilians;
+		// var injuries = data.injuries;
+		// var children = data.children;
+		// var date = data.date;
+
+
 
 
 		if (this.state.detailsVisible) {
@@ -46,7 +49,7 @@ var DroneListItem = React.createClass({
 				<DroneDeaths data={data} />
 				<DroneCivilians data={data} />
 				<div id="container"></div>
-				
+				<DroneMap data={data} />
 			</div>
 		);
 

@@ -12,7 +12,6 @@ var hashHistory = ReactRouter.hashHistory;
 var App = require('./components/App.jsx');
 
 
-
 var jsx = (
 	<Router history={hashHistory}>
 		<Route path="/" component={App}></Route>

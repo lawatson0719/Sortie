@@ -25,12 +25,15 @@ section {
 	display: inline-block;
 	margin: 0 1%;
 	margin-bottom: 5%;
+	text-align: center;
 	h4 {
-		margin: 15px 0;
+		margin: 10px auto;
+		margin-top: 15px;
 		font-family: $libre;
 		font-weight: 300;
 		text-transform: uppercase;
-		margin-bottom: 15px;
+		width: 60%;
+		text-align: center;
 	}
 	div {
 		font-size: 56px;
@@ -44,6 +47,7 @@ section {
 	margin-bottom: 0;
 	p {
 		height: 50px;
+
 	}
 }
 
@@ -56,5 +60,37 @@ a {
 	font-family: $libre;
 	font-weight: 400;
 }
+
+@media (min-width: 800px) {
+
+	section {
+		width: 35%;
+		float: left;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
