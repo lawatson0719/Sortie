@@ -1,5 +1,6 @@
 var EventEmitter = require('eventemitter3');
 var $ = require('jquery');
+// var overlay = require('../components.Overlay.jsx')
 
 var droneStore = Object.create(EventEmitter.prototype);
 EventEmitter.call(droneStore);
@@ -21,10 +22,17 @@ droneStore.fetchDroneStrikes = function () {
 		}
 	};
 
+
 	$.ajax(options);
+
+
 
 	return data;
 };
+
+// overlay.componentDidMount = function() {
+// 		$('#overlay-preload').delay(1700).fadeOut('slow')
+// };
 
 window.droneStore = droneStore;
 
