@@ -1,3 +1,9 @@
 body {
 	background-color: $lightBlue;
 }
+
+.cf:after {
+	content: "";
+	display: block;
+	clear: both;
+}
