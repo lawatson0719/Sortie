@@ -66,8 +66,7 @@ h2 {
 	text-transform: uppercase;
 }
 
-
-@media (min-width: 800px) {
+@media screen and (min-width: 800px) {
 
 	.graph {
 		min-width: 755px;
