@@ -60,16 +60,51 @@ a {
 	font-family: $libre;
 	font-weight: 400;
 }
+form {
+	display: none;
+}
 
 @media screen and (min-width: 800px)  {
 
+	.map {
+		min-width: 755px;
+		width: 60%;
+		height: 670px;
+		float: left;
+	}
 	section {
 		width: 35%;
 		float: left;
-		margin-left: 1.5%;
+		// margin-left: 1.5%;
 	}
 
-
+	.hidden {
+		display: block;
+		float: left;
+		text-align: center;
+		width: 38%;
+		margin: 0 auto;
+		.map-container {
+			width: 33.33%;
+			float: left;
+			margin: 20px auto;
+			height: 30px;
+			// border-radius: 0;
+			.filters {
+				width: 95%;
+				display: block;
+				height: 35px;
+				line-height: 30px;
+				border: 1px solid #D0D6D9;
+				cursor: pointer;
+				outline: none;
+				background-color: #FFF;
+				font-family: $libre;
+				font-weight: 300;
+				line-height: 30px;
+			}
+		}
+	}
 }
 
 

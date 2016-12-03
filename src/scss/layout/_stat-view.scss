@@ -14,7 +14,7 @@
 }
 
 
-form {
+.stats {
 	margin: 0 2.5%;
 	.filter-container {
 		width: 33.33%;
@@ -34,10 +34,10 @@ form {
 			font-family: $libre;
 			font-weight: 300;
 		}
-		.type {
+		.increment {
 			float: right;
 		}
-		.increment {
+		.type {
 			margin-left: 2.5%; 
 		}	
 	}
@@ -82,7 +82,7 @@ h2 {
 	}
 
 
-	form {
+	.stats {
 		width: 35%;
 		height: 100px; 
 		margin: 0 1.5%;
