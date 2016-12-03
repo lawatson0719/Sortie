@@ -43,6 +43,7 @@ section {
 }
 
 #non-totals {
+	display: block;
 	background-color: $lightBlue;
 	margin-bottom: 0;
 	p {
@@ -66,7 +67,7 @@ a {
 		font-weight: 400;
 	}
 }
-form {
+.hidden {
 	display: none;
 }
 
@@ -81,7 +82,7 @@ form {
 	section {
 		width: 35%;
 		float: left;
-		// margin-left: 1.5%;
+		margin-left: 1.5%;
 	}
 
 	.hidden {
