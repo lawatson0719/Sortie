@@ -55,10 +55,16 @@ a {
 	font-family: $libre;
 	font-weight: 700;
 }
-
-.dets {
-	font-family: $libre;
-	font-weight: 400;
+.details {
+	background-color: $lightBeige;
+	width: 92%;
+	margin: 0 auto;
+	height: 374px;
+	display: block;
+	.dets {
+		font-family: $libre;
+		font-weight: 400;
+	}
 }
 form {
 	display: none;
@@ -84,12 +90,12 @@ form {
 		text-align: center;
 		width: 38%;
 		margin: 0 auto;
+		margin-top: 3px;
 		.map-container {
 			width: 33.33%;
 			float: left;
 			margin: 20px auto;
 			height: 30px;
-			// border-radius: 0;
 			.filters {
 				width: 95%;
 				display: block;
@@ -102,8 +108,20 @@ form {
 				font-family: $libre;
 				font-weight: 300;
 				line-height: 30px;
+				margin-left: 30%;
 			}
 		}
+	}
+	#non-totals {
+		margin-left: 3%;
+		margin-top: 15px;
+	}
+	.details {
+		width: 93%;
+		height: 374px;
+		background-color: $lightBeige;
+		margin: 0 auto;
+		margin-bottom: 4%;
 	}
 }
 
