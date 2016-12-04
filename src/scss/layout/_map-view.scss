@@ -1,10 +1,9 @@
-//minwidth 800
 .map {
 	width: 100%;
 	height: 70vw;
 	text-align: center;
 	background-color: white;
-	margin: 0;
+	margin: 1.5% 0;
 }
 
 section {
@@ -18,6 +17,12 @@ section {
 	}
 }
 
+.box {
+	background-color: $lightBeige;
+	width: 92%;
+	margin: 20px auto;
+	display: block;
+}
 .casualties {
 	background-color: $beige;
 	width: 45%;
@@ -46,10 +51,6 @@ section {
 	display: block;
 	background-color: $lightBlue;
 	margin-bottom: 0;
-	p {
-		height: 50px;
-
-	}
 }
 
 a {
@@ -60,11 +61,12 @@ a {
 	background-color: $lightBeige;
 	width: 92%;
 	margin: 0 auto;
-	height: 374px;
+	height: 150px;
 	display: block;
 	.dets {
 		font-family: $libre;
 		font-weight: 400;
+		padding-top: 10%;
 	}
 }
 .hidden {
@@ -76,7 +78,7 @@ a {
 	.map {
 		min-width: 755px;
 		width: 60%;
-		height: 670px;
+		height: 694px;
 		float: left;
 	}
 	section {
@@ -89,40 +91,53 @@ a {
 		display: block;
 		float: left;
 		text-align: center;
-		width: 38%;
 		margin: 0 auto;
-		margin-top: 3px;
 		.map-container {
 			width: 33.33%;
-			float: left;
 			margin: 20px auto;
 			height: 30px;
-			.filters {
-				width: 95%;
-				display: block;
+			border-radius: 0;
+			.countries, .years {
+				width: 130%;
 				height: 35px;
+				display: block;
 				line-height: 30px;
+				margin: 0 auto;
 				border: 1px solid #D0D6D9;
 				cursor: pointer;
 				outline: none;
 				background-color: #FFF;
 				font-family: $libre;
 				font-weight: 300;
-				line-height: 30px;
-				margin-left: 30%;
+				margin-top: 3px;
+			}
+			.countries {
+				margin-left: 22%;
+			}		
+			.years, .year {
+				margin-left: 72%;
+				
 			}
 		}
 	}
+	.country {
+		margin-right: 16%;
+	}
+	.country, .year {
+		font-family: $libre;
+	}
 	#non-totals {
 		margin-left: 3%;
-		margin-top: 15px;
+		margin-top: 25px;
 	}
 	.details {
 		width: 93%;
 		height: 374px;
 		background-color: $lightBeige;
 		margin: 0 auto;
-		margin-bottom: 4%;
+		.dets {
+			padding-top: 15%;
+		}
 	}
 }
 
