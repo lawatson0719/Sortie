@@ -9,12 +9,12 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute; // Does not take a path
 var hashHistory = ReactRouter.hashHistory;
 
-var App = require('./components/App.jsx');
+var AppHome = require('./components/AppHome.jsx');
 
 
 var jsx = (
 	<Router history={hashHistory}>
-		<Route path="/" component={App}></Route>
+		<Route path="/" component={AppHome}></Route>
 	</Router>
 );
 

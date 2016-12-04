@@ -11,7 +11,7 @@ function getActiveClass (path) {
 	return current === path ? 'active' : '';
 }
 
-var App = React.createClass({
+var AppHome = React.createClass({
 	render: function () {
 			
 		return (
@@ -31,6 +31,6 @@ var App = React.createClass({
 	}
 })
 
-module.exports = App;
+module.exports = AppHome;
 
 
