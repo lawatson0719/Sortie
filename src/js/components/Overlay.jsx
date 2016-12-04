@@ -1,13 +1,17 @@
 var React = require('react');
 
 var $ = require('jquery');
+var Timestamp = require('react-timestamp');
 
 var Overlay = React.createClass({
 
+
     render: function () {
+        var dateStamp = <Timestamp format='date' includeDay/>
+        // var timeStamp = <Timestamp format='time' />
         return (
-            <div id="overlay-preload">
-                <span>Every disclosed covert U.S. drone strike from 2002 to present</span>
+            <div id="overlay-preload"> 
+                <span>All disclosed covert U.S. drone strikes from 2002 to {dateStamp}</span>
             </div>
 
         );
@@ -20,3 +24,6 @@ var Overlay = React.createClass({
 });
 
 module.exports = Overlay;
+
+
+// <span> </span>

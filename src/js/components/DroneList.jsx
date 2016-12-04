@@ -22,16 +22,20 @@ var DroneList = React.createClass({
 
 	render: function () {
 		var droneListItems = this.state.data.map(function (data) {
-			return <DroneListItem 
+			return (
+				<DroneListItem 
 				key={data.number}
 				data={data}
-				/>;
+				/>
+			)
 		})
 		return (
 			<div>
 				<button onClick={this.handleLoadClick}>Load</button>
-				{droneListItems.splice(droneListItems.length -50)}
+				{droneListItems.splice(droneListItems.length -7)}
+				<footer></footer>
 			</div>
+
 		)
 	},
 

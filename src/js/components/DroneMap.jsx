@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom');
 // var Leaflet = require('leaflet')
 
 var DroneDeaths = require('./DroneDeaths.jsx')
+var DroneLocation = require('./DroneLocation.jsx')
 
 // import React from 'react';
 // import { render } from 'react-dom';
@@ -18,7 +19,6 @@ var DroneMap = React.createClass({
   
   getInitialState : function(){
     var data = this.props.data
-    var _this = this;
     var latitude = +data.lat;
     var longitude = +data.lon;
 
@@ -36,11 +36,11 @@ var DroneMap = React.createClass({
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
+          url='https://api.mapbox.com/styles/v1/montytotten/ciw8ae2bw000w2qme1ie8s9cf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
         />
         <Marker position={position}>
           <Popup>
-            <span>Marib Province. <br/>6 deaths.</span>
+            <span><DroneLocation data={data} /><DroneDeaths data={data} /></span>
           </Popup>
         </Marker>
       </Map>
@@ -50,5 +50,11 @@ var DroneMap = React.createClass({
 
 
 module.exports = DroneMap;
+
+// LINK FOR MAP WITH ALL STRIKE DATA POINTS
+// https://api.mapbox.com/styles/v1/montytotten/ciw8ae2bw000w2qme1ie8s9cf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg
+
+
+
 
 // ReactDOM.render( <DroneMap />, document.getElementById( 'container' ) );

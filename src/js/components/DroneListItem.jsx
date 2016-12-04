@@ -48,7 +48,6 @@ var DroneListItem = React.createClass({
 				{details}
 				<DroneDeaths data={data} />
 				<DroneCivilians data={data} />
-				<div id="container"></div>
 				<DroneMap data={data} />
 			</div>
 		);
