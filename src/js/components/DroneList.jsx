@@ -32,7 +32,7 @@ var DroneList = React.createClass({
 		return (
 			<div>
 				<button onClick={this.handleLoadClick}>Load</button>
-				{droneListItems.splice(droneListItems.length -7)}
+				{droneListItems.splice(droneListItems.length -1)}
 				<footer></footer>
 			</div>
 
