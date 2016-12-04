@@ -2,7 +2,7 @@ var React = require('react');
 
 var $ = require('jquery');
 
-var Overlay = React.createClass({
+var Graph = React.createClass({
 
     render: function () {
         return (
@@ -33,4 +33,4 @@ var Overlay = React.createClass({
 
 });
 
-module.exports = Overlay;
+module.exports = Graph;

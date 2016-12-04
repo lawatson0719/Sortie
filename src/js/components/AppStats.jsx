@@ -11,19 +11,21 @@ function getActiveClass (path) {
 	return current === path ? 'active' : '';
 }
 
-var App = React.createClass({
+var AppStats = React.createClass({
 	render: function () {
 			
 		return (
 			<div>
-				<Overlay />
 				<header>
-					<Link to="/" className={getActiveClass('/')}>Home</Link>
+					<div className="logo-container">
+						<img className="logo" src="assets/images/whitelogo.png"/>
+					</div>
+					<nav>
+						<a href="/">MAP</a>
+					</nav>
 				</header>
 				<main>
 
-					<h1>Drone Strikes</h1>
-					<DroneList />
 					
 				</main>
 			</div>
@@ -31,6 +33,4 @@ var App = React.createClass({
 	}
 })
 
-module.exports = App;
-
-
+module.exports = AppStats;
