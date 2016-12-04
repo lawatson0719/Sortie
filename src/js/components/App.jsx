@@ -13,7 +13,7 @@ function getActiveClass (path) {
 
 var App = React.createClass({
 	render: function () {
-		
+			
 		return (
 			<div>
 				<Overlay />
