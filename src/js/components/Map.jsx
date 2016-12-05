@@ -5,6 +5,7 @@ var Overlay = require('./Overlay.jsx')
 
 var Link = require('react-router').Link;
 var Stats = require('./Stats.jsx');
+var DroneMap = require('./DroneMap.jsx')
 
 
 function getActiveClass (path) {
@@ -28,7 +29,9 @@ var Map = React.createClass({
 
                 <main className="cf">
                 <div>
-                    <section className="map">MAP</section>
+                    <section className="map">
+                      <DroneMap />
+                    </section>
                     <form className="cf hidden">
                       <div className="map-container">
                         <label className="country" htmlFor="country">Country</label>
@@ -38,7 +41,7 @@ var Map = React.createClass({
                           <option value="somalia">Somalia</option>
                         </select>
                       </div>
-                      <div className="map-container">
+                      <div className="map-container-years">
                         <label className="year" htmlFor="year">Year</label>
                         <select className="years">
                           <option value={2016}>2016</option>
@@ -77,6 +80,9 @@ var Map = React.createClass({
                     </section>
                   </div>
                 </main>
+                <footer>
+                  <small>&copy 2016 Drone Strike All Rights Reserved</small>
+                </footer>
             </div>
         )
 
