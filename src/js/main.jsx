@@ -10,11 +10,16 @@ var IndexRoute = ReactRouter.IndexRoute; // Does not take a path
 var hashHistory = ReactRouter.hashHistory;
 
 var App = require('./components/App.jsx');
+var Map = require('./components/Map.jsx');
+var Stats = require('./components/Stats.jsx');
 
 
 var jsx = (
 	<Router history={hashHistory}>
-		<Route path="/" component={App}></Route>
+		<Route path="/" component={App}>
+			<IndexRoute component={Map} />
+			<Route path="stats" component={Stats} />
+		</Route>
 	</Router>
 );
 

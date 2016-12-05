@@ -18,8 +18,13 @@ var App = React.createClass({
 			<div>
 				<Overlay />
 				<header>
-					<Link to="/" className={getActiveClass('/')}>Home</Link>
-				</header>
+                    <div className="logo-container">
+                        <img className="logo" src="assets/images/whitelogo.png"/>
+                    </div>
+                    <nav>
+                        <a href="map-mobile-tablet.html">MAP</a>
+                    </nav>
+                </header>
 				<main>
 
 					<h1>Drone Strikes</h1>
