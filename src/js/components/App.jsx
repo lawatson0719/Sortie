@@ -29,7 +29,3 @@ var App = React.createClass({
 
 module.exports = App;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4a2dd4862cfeaf2888951c2106a70276bf6acf24
