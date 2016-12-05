@@ -38,7 +38,7 @@ var Map = React.createClass({
                           <option value="somalia">Somalia</option>
                         </select>
                       </div>
-                      <div className="map-container">
+                      <div className="map-container-years">
                         <label className="year" htmlFor="year">Year</label>
                         <select className="years">
                           <option value={2016}>2016</option>
@@ -77,6 +77,9 @@ var Map = React.createClass({
                     </section>
                   </div>
                 </main>
+                <footer>
+					<small>&copy 2016 Drone Strike All Rights Reserved</small>
+				</footer>
             </div>
         )
 
