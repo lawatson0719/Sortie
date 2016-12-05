@@ -2,6 +2,9 @@ var React = require('react');
 
 var DroneList = require('./DroneList.jsx')
 var Overlay = require('./Overlay.jsx')
+var Map= require('./Map.jsx')
+var Stats= require('./Stats.jsx')
+
 
 var Link = require('react-router').Link;
 
@@ -15,27 +18,14 @@ var App = React.createClass({
 	render: function () {
 			
 		return (
-			<div>
+			
+			<div>	
 				<Overlay />
-				<header>
-                    <div className="logo-container">
-                        <img className="logo" src="assets/images/whitelogo.png"/>
-                    </div>
-                    <nav>
-                        <a href="map-mobile-tablet.html">MAP</a>
-                    </nav>
-                </header>
-				<main>
-
-					<h1>Drone Strikes</h1>
-					<DroneList />
-					
-				</main>
+				{this.props.children}
 			</div>
 		)
 	}
 })
 
 module.exports = App;
-
 

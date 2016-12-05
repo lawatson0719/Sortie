@@ -1,0 +1,22 @@
+#overlay-preload {
+    background: #2A2F35 ;
+    background: #2A2F35 ;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 999999;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+ 
+}
+
+#overlay-preload span {
+    position: relative;
+    display: block;
+    top: 50%;
+ margin: 0 auto;
+    margin-top: -70px;
+ width: 50%;
+ 
+}

@@ -14,13 +14,15 @@ var Map = require('./components/Map.jsx');
 var Stats = require('./components/Stats.jsx');
 
 
+
 var jsx = (
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Map} />
-			<Route path="stats" component={Stats} />
+		<Route path="/stats" component={Stats}/>
 		</Route>
 	</Router>
+	
 );
 
 ReactDOM.render(jsx, document.querySelector('#app'));
