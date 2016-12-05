@@ -5,6 +5,8 @@ var Overlay = require('./Overlay.jsx')
 
 var Link = require('react-router').Link;
 
+var GrandTotals = require('./grandTotals.jsx');
+
 
 function getActiveClass (path) {
     var current = window.location.hash.slice(1);
@@ -16,7 +18,8 @@ var Stats = React.createClass({
             
         return (
             <div>
-                <header>
+            	<GrandTotals />
+                {/*<header>
                     <div className="logo-container">
                         <img className="logo" src="assets/images/whitelogo.png"/>
                     </div>
@@ -68,7 +71,7 @@ var Stats = React.createClass({
 				       <div className="description">
 				         <h2>SUMMARY</h2>
 				         <p className="default">Click data point on graph to show a brief summary
-				           {/* description shown here when dot on graph is clicked */}
+				           description shown here when dot on graph is clicked
 				         </p>
 				       </div>
 				       <section>
@@ -86,7 +89,7 @@ var Stats = React.createClass({
                 </main>
                 <footer>
                   <small>&copy 2016 Drone Strike All Rights Reserved</small>
-                </footer>
+                </footer> */}
             </div>
         )
     }

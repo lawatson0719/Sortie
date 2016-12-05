@@ -3,6 +3,7 @@ var React    = require('react');
 var ReactDOM = require('react-dom');
 // var ReactLeaflet = require('react-leaflet')
 // var Leaflet = require('leaflet')
+var droneStore = require('../stores/droneStore.js')
 
 var DroneDeaths = require('./DroneDeaths.jsx')
 var DroneLocation = require('./DroneLocation.jsx')

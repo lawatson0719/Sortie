@@ -24,14 +24,14 @@ var DroneListItem = React.createClass({
 		// var { number, country, deaths } = this.props.data;
 
 		var data = this.props.data;
-		// var number = data.number;
-		// var country = data.country;
-		// var location = data.location;
-		// var deaths = data.deaths;
-		// var civilians = data.civilians;
-		// var injuries = data.injuries;
-		// var children = data.children;
-		// var date = data.date;
+		var number = data.number;
+		var country = data.country;
+		var location = data.location;
+		var deaths = data.deaths;
+		var civilians = data.civilians;
+		var injuries = data.injuries;
+		var children = data.children;
+		var date = data.date;
 
 
 

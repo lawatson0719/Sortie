@@ -1,11 +1,16 @@
 var React = require('react');
 
-var DroneList = require('./DroneList.jsx')
+// var DroneList = require('./DroneList.jsx')
 var Overlay = require('./Overlay.jsx')
 
 var Link = require('react-router').Link;
-var Stats = require('./Stats.jsx');
-var DroneMap = require('./DroneMap.jsx')
+// var Stats = require('./Stats.jsx');
+// var DroneList = require('./DroneList.jsx')
+// var DroneDetails = require('./DroneDetails.jsx')
+
+// var MapView = require('./MapView.jsx');
+var DetailsView = require('./DetailsView.jsx');
+
 
 
 function getActiveClass (path) {
@@ -18,7 +23,8 @@ var Map = React.createClass({
             
         return (
             <div>
-                <header>
+            
+                { /*<header>
                     <div className="logo-container">
                         <img className="logo" src="assets/images/whitelogo.png"/>
                     </div>
@@ -30,7 +36,7 @@ var Map = React.createClass({
                 <main className="cf">
                 <div>
                     <section className="map">
-                      <DroneMap />
+                      <DroneList />
                     </section>
                     <form className="cf hidden">
                       <div className="map-container">
@@ -63,26 +69,13 @@ var Map = React.createClass({
                       </div>
                     </form>
                     <section className="description cf" id="non-totals">
-                      <div className="details">
-                        <p className="dets">Drone strike details</p>
-                      </div>
-                      <div className="box">
-                        <h2>Casualties</h2>
-                        <div id="totals" className="casualties">
-                          <h4>Civilian</h4>
-                          <div>0</div>
-                        </div>
-                        <div id="civilian" className="casualties">
-                          <h4>Total</h4>
-                          <div>0</div>
-                        </div>
-                      </div>
+                      <DroneDetails />
                     </section>
                   </div>
                 </main>
                 <footer>
                   <small>&copy 2016 Drone Strike All Rights Reserved</small>
-                </footer>
+                </footer> */}
             </div>
         )
 
@@ -90,7 +83,7 @@ var Map = React.createClass({
 
 
     }
-})
+}) 
 
 module.exports = Map;
 
