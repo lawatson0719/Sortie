@@ -28,7 +28,10 @@ var Stats = React.createClass({
                     </nav>
                 </header>
                 <main className="cf">
+
 				    <div>
+
+                     <div>
 				       <div className="graph">
 				         <div className="charts--container">
 				           <ul>
@@ -49,6 +52,7 @@ var Stats = React.createClass({
 				         </div>
 				       </div>
 				       <form className="cf stats">
+				    <form className="cf stats">
 				         <div className="filter-container">
 				           <select className="filters numbers">
 				             <option value="Average">Average</option>
@@ -90,6 +94,7 @@ var Stats = React.createClass({
                 <footer>
                   <small>&copy 2016 Drone Strike All Rights Reserved</small>
                 </footer> */}
+
             </div>
         )
     }

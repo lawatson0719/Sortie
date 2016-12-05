@@ -74,8 +74,10 @@ var Map = React.createClass({
                   </div>
                 </main>
                 <footer>
+
                   <small>&copy 2016 Drone Strike All Rights Reserved</small>
                 </footer> */}
+
             </div>
         )
 
