@@ -13,21 +13,24 @@ droneStore.getDroneStrikes = function () {
 };
 
 droneStore.fetchDroneStrikes = function () {
+	
 	var options = {
-		dataType: 'jsonp',
-		url: 'http://api.dronestre.am/data',
-		success: function (response) {
+		dataType : 'jsonp',
+		url : 'http://api.dronestre.am/data',
+
+		success: function ( response ) {
+
+			// console.log( "response: ", response.strike );
+
 			data = response.strike;
-			droneStore.emit('update');
+
+			droneStore.emit( 'update' );
 		}
 	};
 
+	// console.log( "Promise: ", $.ajax( options ) );
 
-	$.ajax(options);
-
-
-
-	return data;
+	return $.ajax( options );
 };
 
 // overlay.componentDidMount = function() {

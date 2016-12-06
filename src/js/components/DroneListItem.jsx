@@ -34,7 +34,7 @@ var DroneListItem = React.createClass({
 		// var date = data.date;
 
 
-
+		console.log( data );
 
 		if (this.state.detailsVisible) {
 			details = <DroneDetails data={data} />

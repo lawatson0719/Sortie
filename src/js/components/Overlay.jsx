@@ -13,7 +13,6 @@ var Overlay = React.createClass({
             <div id="overlay-preload"> 
                 <span>All disclosed covert U.S. drone strikes from 2002 to {dateStamp}</span>
             </div>
-
         );
     },
 

@@ -1,5 +1,6 @@
 var React = require('react');
 
+var droneStore = require('../stores/droneStore');
 var DroneDetails = React.createClass({
 
     render: function () {

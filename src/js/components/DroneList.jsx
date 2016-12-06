@@ -5,21 +5,7 @@ var DroneListItem = require('./DroneListItem.jsx');
 
 var DroneList = React.createClass({
 
-	getInitialState: function () {
-		return {
-			data: droneStore.fetchDroneStrikes()
-		};
-	},
-
-	componentWillMount: function () {
-		var _this = this;
-		droneStore.on('update', function () {
-			_this.setState({
-				data: droneStore.getDroneStrikes()
-			})
-		})
-	},
-
+	
 	render: function () {
 		var droneListItems = this.state.data.map(function (data) {
 			return (
@@ -31,9 +17,8 @@ var DroneList = React.createClass({
 		})
 		return (
 			<div>
-				<button onClick={this.handleLoadClick}>Load</button>
+				
 				{droneListItems.splice(droneListItems.length -1)}
-				<footer></footer>
 			</div>
 
 		)
