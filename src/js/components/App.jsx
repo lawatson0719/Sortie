@@ -3,7 +3,7 @@ var Link = require('react-router').Link;
 
 var DroneList = require('./DroneList.jsx')
 var Overlay = require('./Overlay.jsx')
-var grandTotals = require('./grandTotals.jsx');
+var GrandTotals = require('./GrandTotals.jsx');
 var TotalsView = require('./TotalsView.jsx');
 var CivilianTotalsView = require('./CivilianTotalsView.jsx');
 var Map = require('./Map.jsx')

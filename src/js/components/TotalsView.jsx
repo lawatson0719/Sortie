@@ -5,15 +5,16 @@ var droneStore = require('../stores/droneStore.js');
 
 var TotalsView = React.createClass ({
 
+
 	render: function () {
-	var droneData = droneStore.getDroneStrikes();
-	var numStrikes = droneData.strike.length;
-	var maxDeaths = 0;
-	for (var i = 0; i < numStrikes; i++) {
-		var thisStrikeMaxDeaths = parseInt(droneData.strike[i].deaths_max);
-		if (isNaN(thisStrikeMaxDeaths) === false) {
-			maxDeaths += thisStrikeMaxDeaths
-		}
+		var droneData = droneStore.getDroneStrikes();
+		var numStrikes = droneData.strike.length;
+		var maxDeaths = 0;
+		for (var i = 0; i < numStrikes; i++) {
+			var thisStrikeMaxDeaths = parseInt(droneData.strike[i].deaths_max);
+			if (isNaN(thisStrikeMaxDeaths) === false) {
+				maxDeaths += thisStrikeMaxDeaths;
+			}
 	}
  
 		return (
