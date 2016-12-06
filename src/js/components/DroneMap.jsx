@@ -3,11 +3,12 @@ var React    = require('react');
 var ReactDOM = require('react-dom');
 // var ReactLeaflet = require('react-leaflet')
 // var Leaflet = require('leaflet')
-var droneStore = require('../stores/droneStore.js')
+var droneStore = require('../stores/droneStore.js');
 
-var DroneDeaths = require('./DroneDeaths.jsx')
-var DroneLocation = require('./DroneLocation.jsx')
-var DroneDate = require('./DroneDate.jsx')
+var DroneDeaths = require('./DroneDeaths.jsx');
+var DroneLocation = require('./DroneLocation.jsx');
+var DroneDate = require('./DroneDate.jsx');
+var DroneMarker = require('./DroneMarker.jsx');
 var droneStore = require('../stores/droneStore');
 
 // import React from 'react';
@@ -46,7 +47,8 @@ var DroneMap = React.createClass({
 
   render : function() {
 
-    var zoom = 8;
+    var zoom = 4
+    ;
     var markers = [];
     var position = [0,0];
     var data
@@ -58,14 +60,11 @@ var DroneMap = React.createClass({
       
     data = this.state.data.data;
 
-    this.state.index = 50;
+    this.state.index = 1;
 
     for (var i = 0, len = data.length; i < len; i++) {
-
       position = [ data[ i ].lat, data[ i ].lon ];
-      markers.push( <Marker key={i} position={position}><Popup>
-            <span><DroneLocation data={data [i]} /><DroneDeaths data={data [i]} /></span>
-          </Popup></Marker> );
+      markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
     }
     
     return (
@@ -77,6 +76,10 @@ var DroneMap = React.createClass({
         {markers}
       </Map>
     );
+  },
+
+  test : function(obj) {
+    console.log(obj);
   }
 });
 

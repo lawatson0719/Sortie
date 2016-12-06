@@ -1,7 +1,8 @@
 var React = require('react');
 
-// var DroneList = require('./DroneList.jsx')
+var DroneMap = require('./DroneMap.jsx')
 var Overlay = require('./Overlay.jsx')
+var droneStore = require('../stores/droneStore.js')
 
 
 var Link = require('react-router').Link;
@@ -22,8 +23,37 @@ function getActiveClass (path) {
 }
 
 var Map = React.createClass({
+    getInitialState : function () {
+      return {
+        data: droneStore.getDroneStrikes(),
+        currentStrike: null
+      };
+    },
+
+    componentDidMount : function () {
+      var _this = this;
+
+      // console.log( "mounting" );
+      var response = droneStore.fetchDroneStrikes();
+
+      response.done( function( msg ){
+
+        console.log( "msg: ", msg );
+
+        _this.setState({
+          data: msg.strike
+        });
+      } );
+
+      response.fail( function( msg ){
+
+        console.log( "shit broke" );
+      } );
+
+      // console.log( "strikes", strikes );
+    },
     render: function () {
-            
+       var data = this.state.data
         return (
             <div>
                <header>
@@ -37,10 +67,10 @@ var Map = React.createClass({
 
                 <main className="cf">
                 <section className="map">
-                      
+                      <DroneMap data={data} onMarkerClick={this.setDetails} />
                   </section>
                   <MapFilter />
-                  <Casualties />
+                  <Casualties strike={this.state.strike} />
                   
                 </main>
                 <footer>
@@ -53,11 +83,12 @@ var Map = React.createClass({
               }
 
             </div>
-        )
-
-
-
-
+        );
+    },
+    setDetails: function (strike) {
+      this.setState({
+        strike: strike
+      });
     }
 }) 
 

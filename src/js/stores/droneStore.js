@@ -6,37 +6,29 @@ var droneStore = Object.create(EventEmitter.prototype);
 EventEmitter.call(droneStore);
 
 // Collection
-var data = []
+var data = [];
 
 droneStore.getDroneStrikes = function () {
-	return data;
+    return data;
 };
 
 droneStore.fetchDroneStrikes = function () {
-	
-	var options = {
-		dataType : 'jsonp',
-		url : 'http://api.dronestre.am/data',
+    var options = {
+        dataType: 'jsonp',
+        url: 'http://api.dronestre.am/data',
+        success: function (response) {
+            data = response.strike;
+            droneStore.emit('update');
+        }
+    };
 
-		success: function ( response ) {
+    return $.ajax(options);
 
-			// console.log( "response: ", response.strike );
-
-			data = response.strike;
-
-			droneStore.emit( 'update' );
-		}
-	};
-
-	// console.log( "Promise: ", $.ajax( options ) );
-
-	return $.ajax( options );
-	// console.log('data from dronestore: ' + data);
-	return data;
+    
 };
 
 // overlay.componentDidMount = function() {
-// 		$('#overlay-preload').delay(1700).fadeOut('slow')
+//         $('#overlay-preload').delay(1700).fadeOut('slow')
 // };
 
 window.droneStore = droneStore;
