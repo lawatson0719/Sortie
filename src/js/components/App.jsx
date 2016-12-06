@@ -12,7 +12,7 @@ var Stats = require('./Stats.jsx');
 
 
 function getActiveClass (path) {
-	var current = window.location.hash.slice(1);
+	var current = window.locatione.hash.slice(1);
 	return current === path ? 'active' : '';
 }
 
