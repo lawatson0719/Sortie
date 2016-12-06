@@ -1,17 +1,13 @@
 var React = require('react');
 
-<<<<<<< HEAD
-var droneStore = require('../stores/droneStore');
-=======
 
 
->>>>>>> 39f5ded06745ad97f303c5eb2386de2d80365416
 var DroneDetails = React.createClass({
 
     render: function () {
         return (
             <div>
-            	 <section className="description cf" id="non-totals">
+               <section className="description cf" id="non-totals">
                       <div className="details">
                         <p className="dets">{this.state.data.narrative}</p>
                       </div>
