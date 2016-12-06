@@ -5,23 +5,18 @@ var ReactDOM = require('react-dom');
 var TotalsView = require('./TotalsView.jsx');
 var CivilianTotalsView = require('./CivilianTotalsView.jsx');
 
-var grandTotals = React.createClass ({
+var GrandTotals = React.createClass ({
 
 	render: function () {
 		return (
-			<section className="description cf" id="non-totals">
-
-				<div className="box">
-					<h2>Casualties</h2>
-					<div>
-						<CivilianTotalsView />
-						<TotalsView />
-					</div>	
-				</div>
+			<section>
+				<h2>Casualties</h2>
+					<CivilianTotalsView />
+					<TotalsView />
 			</section>
 		)
 	}
 
 })
 
-module.exports = grandTotals;
+module.exports = GrandTotals;

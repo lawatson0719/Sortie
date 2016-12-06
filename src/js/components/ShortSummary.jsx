@@ -5,20 +5,21 @@ var droneStore = require('../stores/droneStore.js');
 
 var ShortSummary = React.createClass ({
 
+	
+
 	render: function () {
-		var droneData = droneStore.getDroneStrikes();
-		var numStrikes = droneData.strike.length;
-		for (var i = 0; i < numStrikes; i++) {
-		var thisStrikeMaxDeaths = droneData.strike[i].deaths_max;
-		if (isNaN(thisStrikeMaxDeaths) === false) {
-			maxDeaths += thisStrikeMaxDeaths
-			}
-		}
+		// var droneData = droneStore.getDroneStrikes();
+		// var numStrikes = droneData.strike.length;
+		// var thisStrikeMaxDeaths = droneData.strike[i].length - 1.narrative;
+		// if (isNaN(thisStrikeMaxDeaths) === false) {
+		// 	maxDeaths += thisStrikeMaxDeaths
+		// 	}
 
 
 		return (
-			<div>
-
+			<div className="description">
+				<h2>SUMMARY</h2>
+				<p className="default">Click data point on graph to show a brief summary</p>
 			</div>
 		)
 	}
