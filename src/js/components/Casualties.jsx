@@ -9,12 +9,7 @@ var Details = require('./Details.jsx');
 var Casualties = React.createClass({
 
 	render: function(){
-		// var droneData = droneStore.getDroneStrikes();
-		// var numStrikes = droneData.strike.length;
-		// var narrative = data.narrative;
-		// for (var i = 0; i < numStrikes; i++) {
-		// var thisStrikeNarrative = droneData.strike[i].narrative;
-		// }
+		
 		return (
 			<section className="description cf" id="non-totals">
 				<div className="details">

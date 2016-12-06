@@ -11,6 +11,9 @@ var Overlay = React.createClass({
         // var timeStamp = <Timestamp format='time' />
         return (
             <div id="overlay-preload"> 
+                    <div className="logolay">
+                        <img className="logooverlay" src="assets/images/whitelogo.png"/>
+                    </div>
                 <span>All disclosed covert U.S. drone strikes from 2002 to {dateStamp}</span>
             </div>
 
@@ -24,6 +27,3 @@ var Overlay = React.createClass({
 });
 
 module.exports = Overlay;
-
-
-// <span> </span>
