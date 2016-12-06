@@ -1,20 +1,29 @@
 var React = require('react');
 var ReactDOM = require('react-dom')
+var Link = require('react-router').Link;
+
 
 var DroneList = require('./DroneList.jsx')
 var DroneDetails = require('./DroneDetails.jsx')
 var Overlay = require('./Overlay.jsx')
+
 var Map = require('./Map.jsx')
 var Stats= require('./Stats.jsx')
 var DroneMap = require('./DroneMap.jsx')
 var droneStore = require('../stores/droneStore');
 
 
-var Link = require('react-router').Link;
+var GrandTotals = require('./GrandTotals.jsx');
+var TotalsView = require('./TotalsView.jsx');
+var CivilianTotalsView = require('./CivilianTotalsView.jsx');
+var Map = require('./Map.jsx')
+var Stats = require('./Stats.jsx');
+
+
 
 
 function getActiveClass (path) {
-	var current = window.location.hash.slice(1);
+	var current = window.locatione.hash.slice(1);
 	return current === path ? 'active' : '';
 }
 
@@ -26,13 +35,11 @@ var App = React.createClass({
 		// console.log( "data: ", data );
 		
 		return (
-			<div>	
-				<Overlay />
+			<div>
+				<Overlay />	
+
 				{this.props.children}
 				
-				
-
-
 			</div>
 		)
 	}

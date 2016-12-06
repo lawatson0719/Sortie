@@ -1,79 +1,80 @@
 .map {
-	width: 100%;
-	height: 70vw;
-	text-align: center;
-	background-color: white;
-	margin: 1.5% 0;
+    width: 100%;
+    height: 70vw;
+    text-align: center;
+    background-color: white;
+    margin: 1.5% 0;
 }
 
 section {
-	width: 95%;
-	text-align: center;
-	margin: 20px auto;
-	background-color: $lightBeige;
-	h2 {
-		margin: 0;
-		padding: 15px 0;
-	}
+    width: 95%;
+    text-align: center;
+    margin: 20px auto;
+    background-color: $lightBeige;
+    h2 {
+        margin: 0;
+        padding: 15px 0;
+    }
 }
 
 .box {
-	background-color: $lightBeige;
-	width: 92%;
-	margin: 20px auto;
-	display: block;
+    background-color: $lightBeige;
+    width: 92%;
+    margin: 20px auto;
+    display: block;
 }
 .casualties {
-	background-color: $beige;
-	width: 45%;
-	height: 125px;
-	display: inline-block;
-	margin: 0 1%;
-	margin-bottom: 5%;
-	text-align: center;
-	h4 {
-		margin: 10px auto;
-		margin-top: 15px;
-		font-family: $libre;
-		font-weight: 300;
-		text-transform: uppercase;
-		width: 60%;
-		text-align: center;
-	}
-	div {
-		font-size: 56px;
-		font-family: $libre;
-		font-weight: 500;
-	}
+    background-color: $beige;
+    width: 45%;
+    height: 125px;
+    display: inline-block;
+    margin: 0 1%;
+    margin-bottom: 5%;
+    text-align: center;
+    h4 {
+        margin: 10px auto;
+        margin-top: 15px;
+        font-family: $libre;
+        font-weight: 300;
+        text-transform: uppercase;
+        width: 60%;
+        text-align: center;
+    }
+    div {
+        font-size: 56px;
+        font-family: $libre;
+        font-weight: 500;
+    }
 }
 
 #non-totals {
-	display: block;
-	background-color: $lightBlue;
-	margin-bottom: 0;
+    display: block;
+    background-color: $lightBlue;
+    margin-bottom: 0;
 }
 
 a {
-	font-family: $libre;
-	font-weight: 700;
+    font-family: $libre;
+    font-weight: 700;
 }
 .details {
-	background-color: $lightBeige;
-	width: 92%;
-	margin: 0 auto;
-	height: 150px;
-	display: block;
-	.dets {
-		font-family: $libre;
-		font-weight: 400;
-		padding-top: 10%;
-	}
+    background-color: $lightBeige;
+    width: 92%;
+    margin: 0 auto;
+    height: 150px;
+    display: block;
+    .dets {
+        font-family: $libre;
+        font-weight: 400;
+        padding-top: 10%;
+    }
 }
 .hidden {
-	display: none;
+    display: none;
 }
 
 @media screen and (min-width: 800px)  {
+
 
 	.map {
 		min-width: 755px;
@@ -82,50 +83,52 @@ a {
 		float: left;
 	}
 	section {
-		width: 35%;
+		width: 34.6%;
 		float: left;
 		margin-left: 1.5%;
 	}
 
-	
-	.countries, .country {
-		margin-left: 58%;
-		float: left;
-	}		
-	.years, .year {
-		margin-left: 196%;
-		float: left;
-				
-	}
-	.year, .country {
-		font-family: $libre;
-	}
-	
 	.hidden {
 		display: block;
-		float: left;
-	.map-container {
-		width: 40%;
-		float: left;
-		margin: 20px auto;
-		height: 30px;
-		border-radius: 0;
-		.countries, .years {
-			width: 202%;
+		height: 65px;
+		width: 38%;
+		float: right;
+		position: relative;
+		margin-bottom: 3px;
+		 .map-container,
+		 .map-container-years {
+		 	margin-top: 20px;
+			width: 48%;
+			position: absolute;
+		}
+		.map-container {
+			
+			//right: 258px;
+			left: 30px;
+		}
+		.map-container-years {
+			right: -6px;
+			float: right;
+		}
+		.year, .country {
+			margin-bottom: 5px;
 			display: block;
+			font-family: $libre;
+			font-weight: 500;
+			
+		}
+		.countries, .years {
+			width: 80%;
 			height: 35px;
-			line-height: 30px;
+			margin: 0 auto;
+			font-family: $libre;
+			font-weight: 300;
 			border: 1px solid #D0D6D9;
 			cursor: pointer;
 			outline: none;
-			background-color: #FFF;
-			font-family: $libre;
-			font-weight: 300;
-			margin-top: 3%;
 		}
-	}
-}
-
+	}			
+	
 	
 	#non-totals {
 		margin-left: 3%;
@@ -141,6 +144,7 @@ a {
 		}
 	}
 }
+
 
 
 

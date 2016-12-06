@@ -19,7 +19,7 @@
 	.filter-container {
 		width: 33.33%;
 		float: left;
-		margin: 20px auto;
+		margin: 15px auto;
 		height: 30px;
 		border-radius: 0;
 		.filters {
@@ -35,7 +35,8 @@
 			font-weight: 300;
 		}
 		.increment {
-			float: right;
+			// float: right;
+			margin-left: 2px;
 		}
 		.type {
 			margin-left: 2.5%; 
@@ -92,19 +93,20 @@ h2 {
 		width: 35%;
 		height: 75px; 
 		margin: 0 1.5%;
+		padding-top: 2px;
 		.filter-container {
 			float: left;
-			margin-top: 25px;
+			margin-top: 21px;
 		}
 	}
 
 	.description {
 		display: block;
-		width: 35%;
+		width: 34.6%;
 		height: 374px;
 		background-color: $lightBeige;
 		margin-left: 1.5%;
-		margin-top: 15px;
+		margin-top: -4px;
 		h2 {
 			padding-top: 30px;
 			width: 100%;
@@ -122,6 +124,9 @@ h2 {
 
 	form {
 		display: block;
+	}
+	.type {
+		margin-left: 0px;
 	}
 
 
