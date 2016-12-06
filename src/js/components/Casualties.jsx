@@ -10,19 +10,13 @@ var DroneLocation = require('./DroneLocation.jsx')
 var Casualties = React.createClass({
 
 	render: function(){
-		// var droneData = droneStore.getDroneStrikes();
-		// var numStrikes = droneData.strike.length;
-		// var narrative = data.narrative;
-		// for (var i = 0; i < numStrikes; i++) {
-		// var thisStrikeNarrative = droneData.strike[i].narrative;
-		// }
 		var details = 'No data loaded. Click a marker.';
 
 		if (this.props.strike) {
 			details = (
 				<div className="details">
-					<h2>{this.props.strike.location}</h2>
-					<h3>{this.props.strike.date}</h3>
+					<h1>{this.props.strike.location}</h1>
+					<h4 className="mapdate">{this.props.strike.date}</h4>
                     <p className="dets">
                     	{this.props.strike.bij_summary_short || this.props.strike.narrative}
                     </p>

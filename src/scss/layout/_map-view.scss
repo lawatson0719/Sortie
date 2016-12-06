@@ -19,7 +19,7 @@ section {
 
 .box {
     background-color: $lightBeige;
-    width: 92%;
+    // width: 92%;
     margin: 20px auto;
     display: block;
 }
@@ -51,28 +51,66 @@ section {
     display: block;
     background-color: $lightBlue;
     margin-bottom: 0;
+    h1 {
+    	padding-top: 10px;
+    }
+    .mapdate {
+    	margin-top: -8px;
+    	margin-bottom: 0;
+    	font-family: $libre;
+        font-weight: 500;
+    }
+    .details {
+    background-color: $lightBeige;
+    margin: 0 auto;
+    height: 300px;
+    display: block;
+    .dets {
+        font-family: $libre;
+        font-weight: 400;
+        padding-top: 10%;
+        margin-top: -8px;
+    	margin-bottom: 60px;
+    	margin-left: 2%;
+    	margin-right: 2%;
+        margin: 0 auto;
+    }
+	}
 }
 
 a {
     font-family: $libre;
     font-weight: 700;
 }
-.details {
-    background-color: $lightBeige;
-    width: 92%;
-    margin: 0 auto;
-    height: 150px;
-    display: block;
-    .dets {
-        font-family: $libre;
-        font-weight: 400;
-        padding-top: 10%;
-    }
-}
+
 .hidden {
     display: none;
 }
 
+// @media screen and (min-width: 800px)  {
+
+// 	#non-totals {
+//     margin-bottom: 3%;
+//     h1 {
+//     	padding-top: 20px;
+//     }
+//     .mapdate {
+//     	margin-bottom: 0;
+//     }
+//     .details {
+//     	margin-top: 15%;
+//     	width: 93%;
+
+// 	    .dets {
+// 	    	margin-top: -70px;
+// 	    	margin-left: 2%;
+// 	    	margin-right: 2%;
+// 	    	margin: 0 auto;
+// 	    }
+// 	}
+// }
+
+// }
 @media screen and (min-width: 800px)  {
 
 	.map {
@@ -82,7 +120,7 @@ a {
 		float: left;
 	}
 	section {
-		width: 34.6%;
+		width: 34.9%;
 		float: left;
 		margin-left: 1.5%;
 	}
@@ -93,7 +131,7 @@ a {
 		width: 38%;
 		float: right;
 		position: relative;
-		margin-bottom: 3px;
+		// margin-bottom: 3px;
 		 .map-container,
 		 .map-container-years {
 		 	margin-top: 20px;
@@ -101,7 +139,6 @@ a {
 			position: absolute;
 		}
 		.map-container {
-			
 			//right: 258px;
 			left: 30px;
 		}
@@ -130,15 +167,18 @@ a {
 	
 	#non-totals {
 		margin-left: 3%;
-		margin-top: 25px;
+		margin-top: 10px;
+		display: block;
 	}
 	.details {
-		width: 93%;
-		height: 374px;
+		// width: 34.9%;
+		// height: 800px;
 		background-color: $lightBeige;
 		margin: 0 auto;
 		.dets {
 			padding-top: 15%;
+			background-color: $lightBeige;
+			
 		}
 	}
 }
