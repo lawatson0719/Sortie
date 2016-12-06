@@ -6,6 +6,7 @@ var App = require('./App.jsx');
 
 var CivilianTotalsView = React.createClass ({
 
+
     getInitialState: function () {
         return {
             drones: droneStore.getDroneStrikes()
@@ -42,6 +43,7 @@ var CivilianTotalsView = React.createClass ({
             
             )
         }
+
 
 })
 

@@ -13,6 +13,7 @@ droneStore.getDroneStrikes = function () {
 };
 
 droneStore.fetchDroneStrikes = function () {
+
     var options = {
         dataType: 'jsonp',
         url: 'http://api.dronestre.am/data',
@@ -23,8 +24,6 @@ droneStore.fetchDroneStrikes = function () {
     };
 
     return $.ajax(options);
-
-    
 };
 
 // overlay.componentDidMount = function() {

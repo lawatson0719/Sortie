@@ -20,33 +20,34 @@ function getActiveClass (path) {
 
 var App = React.createClass({
 
-    getInitialState: function () {
-        return {
-            drones: droneStore.fetchDroneStrikes()
-        };
-    },
+	getInitialState: function () {
+		return {
+			drones: droneStore.fetchDroneStrikes()
+		};
+	},
 
-    componentWillMount: function () {
-        droneStore.on('update', this.updateDrones);
-    },
+	componentWillMount: function () {
+		droneStore.on('update', this.updateDrones);
+	},
 
-    updateDrones: function () {
-        this.setState({
-            drones: droneStore.getDroneStrikes()
-        });
-    },
+	updateDrones: function () {
+		this.setState({
+			drones: droneStore.getDroneStrikes()
+		});
+	},
 
 
-    render: function () {
-            
-        return (
-            
-            <div>
-                <Overlay />    
-                {this.props.children}
-            </div>
-        )
-    }
+	render: function () {
+			
+		return (
+			
+			<div>
+				<Overlay />	
+				{this.props.children}
+			</div>
+		)
+	}
 })
+
 
 module.exports = App;
