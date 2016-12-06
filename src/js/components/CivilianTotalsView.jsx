@@ -2,16 +2,32 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var droneStore = require('../stores/droneStore.js');
+var App = require('./App.jsx');
 
 var CivilianTotalsView = React.createClass ({
 
+	getInitialState: function () {
+		return {
+			drones: droneStore.getDroneStrikes()
+		}
+	},
+
+	componentWillMount: function () {
+		var _this = this;
+		droneStore.on('update', function () {
+			_this.setState({
+				drones: droneStore.getDroneStrikes()
+			})
+		})
+	},
+	
 	render: function () {
-		var droneData = droneStore.getDroneStrikes();
-		var numStrikes = droneData.strike.length;
+	
+		var numStrikes = this.state.drones.length;
 		var maxCivilDeaths = 0;
 
 		for (var i = 0; i < numStrikes; i++) {
-			var split = parseInt(droneData.strike[i].civilians.split('-').pop());
+			var split = parseInt(this.state.drones[i].civilians.split('-').pop());
 			var thisStrikeMaxCivilDeaths = split;
 			if (isNaN(thisStrikeMaxCivilDeaths) === false) {
 				maxCivilDeaths += thisStrikeMaxCivilDeaths
@@ -24,8 +40,8 @@ var CivilianTotalsView = React.createClass ({
 					<div>{maxCivilDeaths}</div>
 				</div>
 			
-		)
-	}
+			)
+		}
 
 })
 
