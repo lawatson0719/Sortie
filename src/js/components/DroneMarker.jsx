@@ -21,10 +21,10 @@ var DroneMarker = React.createClass({
   render : function() {
     return (
       <CircleMarker color="#FA9A50" center={this.props.position} radius={4.8} onClick={this.handleClick} >
-        <Popup className="pop" color="#C8C3B2" font-family="Montserrat">
+        <Popup >
           <span>
             <DroneLocation data={this.props.strike} />
-            <DroneDeaths data={this.props.strike} />
+            <DroneDeaths className="deaths" data={this.props.strike} />
           </span>
         </Popup>
       </CircleMarker>

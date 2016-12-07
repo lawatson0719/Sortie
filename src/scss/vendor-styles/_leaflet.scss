@@ -1,11 +1,23 @@
 .leaflet-container {
   height: 100%;
   width: 100%;
-	.pop {
-		color: $beige;
-		font-family: $libre;
+
+  	.leaflet-popup-content-wrapper{
+  		margin: 0 auto;
+	background-color: $lightBlue;
+	text-align: center;
+
+		.leaflet-popup-content {
+			background-color: $lightBlue;
+			font-family: $libre;
+		}
 	}
+
+	.leaflet-popup-tip {
+				background-color: $lightBlue;
+			}
 }
+
 @media screen and (min-width: 800px) {
 .leaflet-container {
 	min-width: 755px;
