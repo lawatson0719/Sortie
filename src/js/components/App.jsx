@@ -18,7 +18,7 @@ function getActiveClass (path) {
     return current === path ? 'active' : '';
 }
 
-var App = React.createClass({
+var App = React.createClass({	
 
 	getInitialState: function () {
 		return {
