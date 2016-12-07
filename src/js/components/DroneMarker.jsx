@@ -10,7 +10,7 @@ var DroneLocation = require('./DroneLocation.jsx');
 // import React from 'react';
 // import { render } from 'react-dom';
 var Map       = require('react-leaflet').Map;
-var Marker    = require('react-leaflet').Marker;
+var CircleMarker  = require('react-leaflet').CircleMarker;
 var Popup     = require('react-leaflet').Popup;
 
 // import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
@@ -18,14 +18,14 @@ var DroneMarker = React.createClass({
 
   render : function() {
     return (
-      <Marker position={this.props.position} onClick={this.handleClick} >
+      <CircleMarker center={this.props.position} radius={4.8} onClick={this.handleClick} >
         <Popup>
           <span>
             <DroneLocation data={this.props.strike} />
             <DroneDeaths data={this.props.strike} />
           </span>
         </Popup>
-      </Marker>
+      </CircleMarker>
     );
   },
 

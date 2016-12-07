@@ -8,7 +8,9 @@ var CountryFilter = React.createClass({
 
     getInitialState: function () {
         return {
-            drones: droneStore.getDroneStrikes()
+            drones: droneStore.getDroneStrikes(),
+            filterCountry: 'all' 
+            
         }
     },
 
@@ -35,7 +37,8 @@ var CountryFilter = React.createClass({
   
       } else if (this.state.drones[j].country === "Somalia") {  
         filteredData.push(this.state.drones[j]);
-      }
+
+      } 
     }
     console.log('filteredData.length: ' + filteredData.length);
 
