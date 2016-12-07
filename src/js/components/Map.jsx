@@ -13,7 +13,7 @@ var Link = require('react-router').Link;
 // var MapView = require('./MapView.jsx');
 var Details = require('./Details.jsx');
 var Casualties = require('./Casualties.jsx');
-var MapFilter = require('./MapFilter.jsx');
+var YearFilter = require('./YearFilter.jsx');
 
 
 
@@ -27,8 +27,9 @@ var Map = React.createClass({
       return {
         data: droneStore.getDroneStrikes(),
         currentStrike: null,
-        filterCountry: 'all',
-        filterYear: 'all'
+
+        year: "all",
+        country: "all"
       };
     },
 
@@ -40,25 +41,22 @@ var Map = React.createClass({
 
       response.done( function( msg ){
 
-        console.log( "msg: ", msg );
-
         _this.setState({
           data: msg.strike
         });
       } );
-
-      response.fail( function( msg ){
-
-        console.log( "shit broke" );
-      } );
-
-      // console.log( "strikes", strikes );
     },
-    // handleYearChange : function (e) {
-    //   // console.log('you changed: ' + e.target.value);
-    //   this.setState({filterYear: e.target.value});
-    //   console.log(e.target.value);
-    // },
+
+    handleYearChange : function ( e ) {
+
+      // this.setState({ year : val } );
+
+      this.setState( { year : e.target.value } );
+      
+      console.log(e.target.value);
+
+      // console.log( "val", val );
+    },
 
     // handleCountryChange : function (e) {
     //   // console.log('you changed: ' + e.target.value);
@@ -67,12 +65,15 @@ var Map = React.createClass({
     // },
 
     clearMap : function () {
+
       console.log( "test" );
       this.refs.mapref.clearMap();
     },
 
     render: function () {
-       var data = this.state.data
+        var data = this.state.data;
+        var year = this.state.year;
+
         return (
             <div>
                <header>
@@ -85,11 +86,34 @@ var Map = React.createClass({
                 </header>
 
                 <main className="cf">
-                <section className="map">
-                      <DroneMap data={data} onMarkerClick={this.setDetails} ref="mapref"/>
+                  <section className="map">
+                      <DroneMap year={year} data={data} onMarkerClick={this.setDetails} ref="mapref" onChange={this.props.handleFilter}/>
                   </section>
-                  {/*<MapFilter />*/}
-                  <MapFilter />
+
+                  <form className="cf hidden">
+                    <div className="map-container">      
+                        <label className="year" htmlFor="year">Year</label>
+                        <select className="years" onChange={this.handleYearChange} value={this.state.year}>
+                            <option value={'all'} default>All Years</option>
+                            <option value={2016}>2016</option>
+                            <option value={2015}>2015</option>
+                            <option value={2014}>2014</option>
+                            <option value={2013}>2013</option>
+                            <option value={2012}>2012</option>
+                            <option value={2011}>2011</option>
+                            <option value={2010}>2010</option>
+                            <option value={2009}>2009</option>
+                            <option value={2008}>2008</option>
+                            <option value={2007}>2007</option>
+                            <option value={2006}>2006</option>
+                            <option value={2005}>2005</option>
+                            <option value={2004}>2004</option>
+                            <option value={2003}>2003</option>
+                            <option value={2002}>2002</option>
+                        </select>
+                    </div>
+                </form>
+
                   <button onClick={this.clearMap}>Clear Map</button>
                   <Casualties strike={this.state.strike} />
                   
@@ -106,11 +130,20 @@ var Map = React.createClass({
             </div>
         );
     },
+
     setDetails: function (strike) {
       this.setState({
         strike: strike
       });
+    },
+
+    handleFilter: function (array) { 
+        this.setState({ 
+          filteredArray: array 
+        });
     }
+
+    
 }) 
 
 module.exports = Map;

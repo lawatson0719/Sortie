@@ -5,6 +5,21 @@ var droneStore = require('../stores/droneStore.js');
 
 var MonthYearFilter = React.createClass ({
 
+	getInitialState: function () {
+        return {
+            drones: droneStore.getDroneStrikes(),
+            filterYear: 'all'
+        }
+    },
+
+    componentWillMount: function () {
+        var _this = this;
+        droneStore.on('update', function () {
+            _this.setState({
+                drones: droneStore.getDroneStrikes()
+            })
+        })
+    },
 
 	render: function () {
 		

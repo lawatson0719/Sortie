@@ -37,10 +37,14 @@ var DroneMap = React.createClass({
   },
 
   componentWillReceiveProps: function (nextProps) {
+
+    console.log( nextProps );
+
     // You don't have to do this check first, but it can help prevent an unneeded render
     this.setState({
-      data: nextProps,
-      markers: []
+      data : nextProps.data,
+      markers : [],
+      year : nextProps.year
     });  
     return null;
   },
@@ -62,10 +66,12 @@ var DroneMap = React.createClass({
     if (this.state === null) {
       return null;
     }
+
+    console.log( this.props.year );
       
     data = this.state.data.data;
 
-    var filteredData = [];
+    // var filteredData = [];
 
     this.state.index = 1;
 
@@ -98,13 +104,17 @@ var DroneMap = React.createClass({
     //    filter country 
     // }
 
+    this.state.markers = [];
+
     for (var i = 0; i < data.length; i++) {
         position = [ data[ i ].lat, data[ i ].lon ];
+
+        if( data.year === buttonyear && data.country === buttoncountry ){
+          this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
+        }
+
         this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
       }
-    
-
-    
     
     return (
       <Map center={position} zoom={zoom} ref="leafletref">
