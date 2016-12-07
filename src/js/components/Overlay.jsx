@@ -14,7 +14,7 @@ var Overlay = React.createClass({
                     <div className="logolay">
                         <img className="logooverlay" src="assets/images/whitelogo.png"/>
                     </div>
-                <span>All disclosed covert U.S. drone strikes from 2002 to {dateStamp}</span>
+                <span className="overlaytext">All disclosed covert U.S. drone strikes from 2002 to {dateStamp}</span>
             </div>
         );
     },

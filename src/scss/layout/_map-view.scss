@@ -51,6 +51,11 @@ section {
     display: block;
     background-color: $lightBlue;
     margin-bottom: 0;
+    .nodetails {
+    	padding-top: 10%;
+    	font-family: $mont;
+    	font-weight: 700;
+    }
     h1 {
     	padding-top: 15px;
     	font-family: $mont;
@@ -67,12 +72,13 @@ section {
     margin: 0 auto;
     height: 370px;
     display: block;
+    overflow: auto;
     .dets {
         font-family: $libre;
         font-weight: 400;
-        padding-top: 10%;
-        margin-top: -4px;
-    	margin-bottom: 60px;
+        padding-top: 5%;
+        margin-top: -2px;
+    	margin-bottom: 80px;
     	padding-left: 5%;
     	padding-right: 5%;
         margin: 0 auto;

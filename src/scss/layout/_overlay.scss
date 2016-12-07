@@ -34,7 +34,7 @@
         padding-top: 120px;
         text-align: center;
     }
-    #overlay-preload {
+    #overlay-preload span {
         font-size: 24px;
     }
 }
@@ -48,6 +48,9 @@
     }
     #overlay-preload span {
         width: 80%;
+        .overlaytext {
+            font-size: 80px;
+        }
     }
 }
 

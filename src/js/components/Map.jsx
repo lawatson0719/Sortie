@@ -96,7 +96,7 @@ var Map = React.createClass({
                 </main>
                 <footer>
 
-                  <small>&copy 2016 Drone Strike All Rights Reserved</small>
+                  <small>&copy; 2016 Sortie All Rights Reserved</small>
                 </footer> 
                   
                 { 
