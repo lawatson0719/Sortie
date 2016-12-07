@@ -38,7 +38,6 @@ var Graph = React.createClass({
 
     getInitialState: function () {
 
-
         return {
             drones: droneStore.getDroneStrikes()
         }
