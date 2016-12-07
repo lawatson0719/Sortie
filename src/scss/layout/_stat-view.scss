@@ -36,10 +36,11 @@
 		}
 		.increment {
 			// float: right;
-			margin-left: 2px;
+			margin: 0 auto;
 		}
 		.type {
 			margin-left: 2.5%; 
+			float: right;
 		}	
 	}
 }
@@ -102,7 +103,7 @@ h2 {
 
 	.description {
 		display: block;
-		width: 34.6%;
+		width: 34.9%;
 		height: 374px;
 		background-color: $lightBeige;
 		margin-left: 1.5%;
