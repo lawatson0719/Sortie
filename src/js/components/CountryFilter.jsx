@@ -58,14 +58,9 @@ var CountryFilter = React.createClass({
         yemen.push(this.state.drones[j].country);
   
       } else if (this.state.drones[j].country === "Somalia") {  
-<<<<<<< HEAD
-        filteredData.push(this.state.drones[j]);
+        somalia.push(this.state.drones[j].country);
 
       } 
-=======
-        somalia.push(this.state.drones[j].country);
-      }
->>>>>>> working
     }
     console.log(pakistan)
     console.log(yemen)

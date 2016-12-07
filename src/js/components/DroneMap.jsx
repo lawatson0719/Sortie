@@ -42,7 +42,8 @@ var DroneMap = React.createClass({
 
     // You don't have to do this check first, but it can help prevent an unneeded render
     this.setState({
-      data : nextProps.data,
+      // nextProps.data currently does not allow for markers to be shown on map
+      data : nextProps, 
       markers : [],
       year : nextProps.year
     });  
@@ -106,12 +107,12 @@ var DroneMap = React.createClass({
 
     this.state.markers = [];
 
-    for (var i = 0; i < data.length; i++) {
-        position = [ data[ i ].lat, data[ i ].lon ];
+    for (var i = 0; i < this.props.data.length; i++) {
+        position = [ this.props.data[ i ].lat, this.props.data[ i ].lon ];
 
-        if( data.year === buttonyear && data.country === buttoncountry ){
-          this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
-        }
+        // if( this.props.data.year === this.props.year ){
+        //   this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
+        // }
 
         this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
       }
