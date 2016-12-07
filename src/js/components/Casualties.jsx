@@ -11,17 +11,17 @@ var Casualties = React.createClass({
 
 	render: function(){
 		var details = (
-					<p className="nodetails">To load data, click a marker.</p>
+				<p className="nodetails">To load data, click a marker.</p>
 			)
 		if (this.props.strike) {
 			details = (
-					<div>
-						<h1>{this.props.strike.location}</h1>
-						<h4 className="mapdate">{this.props.strike.date}</h4>
-	                    <p className="dets">
-	                    	{this.props.strike.bij_summary_short || this.props.strike.narrative}
-	                    </p>
-                	</div>
+				<div>
+					<h1>{this.props.strike.location}</h1>
+					<h4 className="mapdate">{this.props.strike.date.split('T').shift()}</h4>
+                    <p className="dets">
+                    	{this.props.strike.bij_summary_short || this.props.strike.narrative}
+                    </p>
+            	</div>
 			);
 		}
 
@@ -33,8 +33,9 @@ var Casualties = React.createClass({
 				<div className="box">
 					<h2>Casualties</h2>
 				<div>
-					<Totals />
 					<CivilianTotals />
+					<Totals />
+					
 				</div>	
 				</div>
 			</section>
