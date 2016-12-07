@@ -90,7 +90,7 @@ var YearFilter = React.createClass({
 		return (
             <form className="cf hidden">
                 <div className="map-container">      
-                    <label className="year" htmlFor="year">Year</label>
+                    <label className="year" htmlFor="year">Select Year</label>
                     <select className="years" onChange={this.handleYearChange} value={this.state.year}>
                         <option value={'all'} default>All Years</option>
                         <option value={2016}>2016</option>
