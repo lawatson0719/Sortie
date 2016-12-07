@@ -39,43 +39,35 @@ var DroneMap = React.createClass({
 
     var zoom = 4;
     var position = [14.39,44.9];
-    var data;
+    var markers = [];
+    var yearStruck;
+    var year;
 
-    if (this.state === null) {
-      return null;
-    }
-      
-    data = this.state.data.data;
+    if( this.state === null ){ return null; }
+    
+    year = this.state.year;
 
     this.state.index = 1;
+    
+    for ( var j = 0; j < this.props.data.length; j++) {
 
-    var year = this.state.year;
-    var markers = [];
-    var _this = this;
-    if (year === 'all') {
+        position = [ this.props.data[ j ].lat, this.props.data[ j ].lon ];
+        yearStruck = parseInt( this.props.data[ j ].date.split( '-' ).shift() );
+      
+        if( position[0] !== '' && position[1] !== '' ){
 
-      markers = this.props.data.map(function(data) {
-
-        return <DroneMarker key={i} position={[data.lat, data.lon]} strike={data} onMarkerClick={_this.props.onMarkerClick} />;
-
-      })
-
-    } else  {
-
-    for (var i = 0; i < this.props.data.length; i++) {
-
-        position = [ this.props.data[ i ].lat, this.props.data[ i ].lon ];
-
-        var yearStruck = parseInt(this.props.data[i].date.split('-').shift())
-        
-        if( yearStruck == this.props.year ){
-          markers.push(<DroneMarker key={i} position={position} strike={this.props.data[i]} onMarkerClick={this.props.onMarkerClick} />);
+            if( year === 'all' || yearStruck == this.props.year ){
+                markers.push(
+                    <DroneMarker
+                        key={j}
+                        position={position}
+                        strike={this.props.data[j]}
+                        onMarkerClick={this.props.onMarkerClick} />
+                );
+            }
         }
-
-      }
     }
       
-    
     return (
       <Map center={position} zoom={zoom} ref="leafletref">
         <TileLayer
@@ -87,7 +79,6 @@ var DroneMap = React.createClass({
     );
   }
 });
-
 
 module.exports = DroneMap;
 
