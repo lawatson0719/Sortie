@@ -15,11 +15,11 @@ var Graph = React.createClass({
         var data = {
                 lineChart: [{
                     date : '2006-02-22',
-                    label : 'foo',
+                    
                     value : 2000
                 }, {
                     date : '2006-08-22',
-                    label : 'bar',
+                    
                     value : 1000
                 }, {
                     date : '2007-01-11',
@@ -142,7 +142,7 @@ var Graph = React.createClass({
         // TODO code duplication check how you can avoid that
         var containerEl = document.getElementById( elementId ),
             width = containerEl.clientWidth,
-            height = width * 0.4,
+            height = width * 0.6,
 
             margin = {
                 top : 30,
@@ -332,7 +332,7 @@ var Graph = React.createClass({
             text.append('tspan')
                 .attr('class', 'lineChart--bubble--value')
                 .attr('x', detailWidth / 2)
-                .attr('y', detailHeight / 4 * 3)
+                .attr('y', detailHeight / 1.7)
                 .attr('text-anchor', 'middle')
                 .text(data.value);
         }
