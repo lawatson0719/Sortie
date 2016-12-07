@@ -9,7 +9,7 @@ var GrandTotals = require('./GrandTotals.jsx');
 var ShortSummary = require('./ShortSummary.jsx');
 var StatsFilter = require('./StatsFilter.jsx');
 var Graph = require('./Graph.jsx');
-
+var droneStore = require('../stores/droneStore.js')
 
 function getActiveClass (path) {
     var current = window.location.hash.slice(1);
@@ -17,6 +17,22 @@ function getActiveClass (path) {
 }
 
 var Stats = React.createClass({
+
+	getInitialState: function () {
+        return {
+            drones: droneStore.getDroneStrikes()
+        }
+    },
+
+    componentWillMount: function () {
+        var _this = this;
+        droneStore.on('update', function () {
+            _this.setState({
+                drones: droneStore.getDroneStrikes()
+            })
+        })
+    },
+
     render: function () {
             
         return (

@@ -1,6 +1,6 @@
 var React = require('react');
 var d3 = require("d3");
-// var droneStore = require('../stores/droneStore.js');
+var droneStore = require('../stores/droneStore.js');
 
 
 
@@ -10,51 +10,63 @@ var d3 = require("d3");
 
 var Graph = React.createClass({
 
-    getInitialState : function(){
 
-        var data = {
-                lineChart: [{
-                    date : '2006-02-22',
-                    
-                    value : 2000
-                }, {
-                    date : '2006-08-22',
-                    
-                    value : 1000
-                }, {
-                    date : '2007-01-11',
-                    label : 'baz',
-                    value : 700
-                }, {
-                    date : '2008-10-01',
-                    label : 'boing',
-                    value : 534
-                }, {
-                    date : '2009-02-24',
-                    label : 'loool',
-                    value : 1423
-                }, {
-                    date : '2010-12-30',
-                    label : 'YEAH',
-                    value : 1222
-                }, {
-                    date : '2011-05-15',
-                    label : 'Hurray',
-                    value : 948
-                }, {
-                    date : '2012-04-02',
-                    label : 'WTF',
-                    value : 1938
-                }, {
-                    date : '2013-08-19',
-                    label : 'OMG',
-                    value : 1245
-                }, {
-                    date : '2013-11-11',
-                    label : 'ROFL',
-                    value : 888
-                }]
-            };
+    getArray : function () {
+        var dataArray = [];
+        var inputData = this.state.drones;
+
+        for (var i = 0; i < this.state.drones.length; i++) {
+            var graphData = {}
+                graphData.date = inputData[i].date.slice(0, inputData[i].date.length -14);
+                graphData.label = 'deaths';
+                graphData.value = +inputData[i].deaths_max;
+            if (isNaN(graphData.value) === true) {
+                     graphData.value = 0;
+            }
+            console.log(graphData.value)
+            dataArray.push(graphData);
+        }
+
+        var obj = {}
+        obj.lineChart = dataArray;
+        return obj
+    },
+
+        
+
+
+
+    getInitialState: function () {
+
+
+        return {
+            drones: droneStore.getDroneStrikes()
+        }
+    },
+
+    componentReceivedData: function (newProps) {
+        // console.log('newProps: ' + JSON.stringify(newProps.data));
+        var graphDate = newProps[0].date    
+        console.log('graphDate: ' + graphDate);
+        // var data = {
+        //     lineChart : [{
+        //         date : graphDate.slice(0, graphDate.length -14),
+        //         label : 'deaths',
+        //         value : +newProps.drones.deaths_max
+                
+     
+        //     }],
+            
+        // }
+
+        var data = this.getArray()
+        this.setState({
+            data: data,
+            chartId : 'lineChart',
+            duration : 1500,
+            delay : 500
+            // data : data
+        })
 
         // parse helper functions on top
         var parse = d3.time.format('%Y-%m-%d').parse;
@@ -65,14 +77,22 @@ var Graph = React.createClass({
             datum.date = parse( datum.date );
             return datum;
         });
-
-        return {
-            chartId : 'lineChart',
-            duration : 1500,
-            delay : 500,
-            data : data
-        };
+        this.drawTheGraph()
+        
     },
+
+
+    componentWillMount: function () {
+        var _this = this;
+        droneStore.on('update', function () {
+            _this.setState({
+                drones: droneStore.getDroneStrikes()
+            })
+            console.log ('this.drones: ' + _this.state.drones)
+            _this.componentReceivedData(_this.state.drones)
+        })
+    },
+
 
 
     // componentWillMount: function () {
@@ -88,7 +108,7 @@ var Graph = React.createClass({
 
     // }
 
-    componentDidMount: function () {
+    drawTheGraph: function () {
         
         var that = this,
             resizeTimer;
@@ -280,7 +300,7 @@ var Graph = React.createClass({
                 }
             })
             .transition()
-            .delay( DURATION / 10 * index)
+            .delay( DURATION / 1000 * index)
             .attr( 'r', 6 );
         }
 
