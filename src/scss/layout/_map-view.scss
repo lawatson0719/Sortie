@@ -52,7 +52,9 @@ section {
     background-color: $lightBlue;
     margin-bottom: 0;
     h1 {
-    	padding-top: 10px;
+    	padding-top: 15px;
+    	font-family: $mont;
+    	font-weight: 700;
     }
     .mapdate {
     	margin-top: -8px;
@@ -63,16 +65,16 @@ section {
     .details {
     background-color: $lightBeige;
     margin: 0 auto;
-    height: 300px;
+    height: 370px;
     display: block;
     .dets {
         font-family: $libre;
         font-weight: 400;
         padding-top: 10%;
-        margin-top: -8px;
+        margin-top: -4px;
     	margin-bottom: 60px;
-    	margin-left: 2%;
-    	margin-right: 2%;
+    	padding-left: 5%;
+    	padding-right: 5%;
         margin: 0 auto;
     }
 	}
@@ -87,30 +89,6 @@ a {
     display: none;
 }
 
-// @media screen and (min-width: 800px)  {
-
-// 	#non-totals {
-//     margin-bottom: 3%;
-//     h1 {
-//     	padding-top: 20px;
-//     }
-//     .mapdate {
-//     	margin-bottom: 0;
-//     }
-//     .details {
-//     	margin-top: 15%;
-//     	width: 93%;
-
-// 	    .dets {
-// 	    	margin-top: -70px;
-// 	    	margin-left: 2%;
-// 	    	margin-right: 2%;
-// 	    	margin: 0 auto;
-// 	    }
-// 	}
-// }
-
-// }
 @media screen and (min-width: 800px)  {
 
 	.map {
@@ -128,10 +106,9 @@ a {
 	.hidden {
 		display: block;
 		height: 65px;
-		width: 38%;
+		width: 40%;
 		float: right;
 		position: relative;
-		// margin-bottom: 3px;
 		 .map-container,
 		 .map-container-years {
 		 	margin-top: 20px;
@@ -139,11 +116,10 @@ a {
 			position: absolute;
 		}
 		.map-container {
-			//right: 258px;
-			left: 30px;
+			left: 38px;
 		}
 		.map-container-years {
-			right: -6px;
+			right: -17px;
 			float: right;
 		}
 		.year, .country {
@@ -169,17 +145,23 @@ a {
 		margin-left: 3%;
 		margin-top: 10px;
 		display: block;
-	}
-	.details {
-		// width: 34.9%;
-		// height: 800px;
-		background-color: $lightBeige;
-		margin: 0 auto;
-		.dets {
-			padding-top: 15%;
+		h1 {
+    		padding-top: 25px;
+    	}
+    	.mapdate {
+    		margin-top: -10px;
+    		margin-bottom: 0;
+    	}
+		.details {
 			background-color: $lightBeige;
-			
+			margin: 0 auto;
+			.dets {
+			padding-top: 8%;
+			padding-left: 0%;
+    		padding-right: 0%;
+			}
 		}
+	
 	}
 }
 
