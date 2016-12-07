@@ -27,7 +27,6 @@ var Map = React.createClass({
       return {
         data: droneStore.getDroneStrikes(),
         currentStrike: null,
-
         year: "all",
         country: "all"
       };
@@ -53,7 +52,7 @@ var Map = React.createClass({
 
       this.setState( { year : e.target.value } );
       
-      console.log(e.target.value);
+      // console.log(e.target.value);
 
       // console.log( "val", val );
     },
@@ -66,7 +65,7 @@ var Map = React.createClass({
 
     clearMap : function () {
 
-      console.log( "test" );
+      // console.log( "test" );
       this.refs.mapref.clearMap();
     },
 

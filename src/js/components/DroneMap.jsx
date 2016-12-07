@@ -38,7 +38,7 @@ var DroneMap = React.createClass({
 
   componentWillReceiveProps: function (nextProps) {
 
-    console.log( nextProps );
+    // console.log( nextProps );
 
     // You don't have to do this check first, but it can help prevent an unneeded render
     this.setState({
@@ -51,7 +51,7 @@ var DroneMap = React.createClass({
   },
 
   clearMap: function () {
-    console.log("clear map function received!!!");
+    // console.log("clear map function received!!!");
     // this.state.markers.clearLayers();
     // console.log({this.refs.leafletref});
   },
@@ -60,62 +60,44 @@ var DroneMap = React.createClass({
 
     var zoom = 4;
     // var markers = this.state.markers;
-    var position = [0,0];
-    var data
+    var position = [14.39,44.9];
+    var data;
 
-    // console.log('this.state.data: ' + JSON.stringify(this.state.data));
     if (this.state === null) {
       return null;
     }
-
-    console.log( this.props.year );
       
     data = this.state.data.data;
 
-    // var filteredData = [];
-
     this.state.index = 1;
 
-    // country
-    // if country === all skip 
-    // for (var j = 0; j < data.length; j++) {
-    //   if (data[j].country === "Pakistan") {  
-    //     filteredData.push(data[j]);
+    var year = this.state.year;
+    var markers = [];
+    var _this = this;
+    if (year === 'all') {
 
-    //   } else if (data[j].country === "Yemen") {  
-    //     filteredData.push(data[j]);
-  
-    //   } else if (data[j].country === "Somalia") {  
-    //     filteredData.push(data[j]);
-    //   }
-    // }
-    // console.log('filteredData.length: ' + filteredData.length);
+      markers = this.props.data.map(function(data) {
 
-    // year
-    // if year === all skip 
-    // for (var i = 0, len = clonedData.length; i < len; i++) {
-    //   if (clonedData[i].year !== "Yemen") {  
-    //     clonedData.splice()
-    //   }
-    // }
+        return <DroneMarker key={i} position={[data.lat, data.lon]} strike={data} onMarkerClick={_this.props.onMarkerClick} />;
 
-    // if ( country === all) && (year == all) {
-    //    no filtering
-    // } else { 
-    //    filter country 
-    // }
+      })
 
-    this.state.markers = [];
+    } else  {
 
     for (var i = 0; i < this.props.data.length; i++) {
+
         position = [ this.props.data[ i ].lat, this.props.data[ i ].lon ];
 
-        // if( this.props.data.year === this.props.year ){
-        //   this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
-        // }
+        var yearStruck = parseInt(this.props.data[i].date.split('-').shift())
+        
+        if( yearStruck == this.props.year ){
+          markers.push(<DroneMarker key={i} position={position} strike={this.props.data[i]} onMarkerClick={this.props.onMarkerClick} />);
+        }
 
-        this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
+        //this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
       }
+    }
+      
     
     return (
       <Map center={position} zoom={zoom} ref="leafletref">
@@ -123,7 +105,7 @@ var DroneMap = React.createClass({
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           url='https://api.mapbox.com/styles/v1/montytotten/ciwf2pmjd00382plko7jgoukd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
         />
-        {this.state.markers}
+        {markers}
       </Map>
     );
   }
