@@ -26,7 +26,9 @@ var Map = React.createClass({
     getInitialState : function () {
       return {
         data: droneStore.getDroneStrikes(),
-        currentStrike: null
+        currentStrike: null,
+        filterCountry: 'all',
+        filterYear: 'all'
       };
     },
 
@@ -52,6 +54,23 @@ var Map = React.createClass({
 
       // console.log( "strikes", strikes );
     },
+    // handleYearChange : function (e) {
+    //   // console.log('you changed: ' + e.target.value);
+    //   this.setState({filterYear: e.target.value});
+    //   console.log(e.target.value);
+    // },
+
+    // handleCountryChange : function (e) {
+    //   // console.log('you changed: ' + e.target.value);
+    //   this.setState({filterCountry: e.target.value});
+    //   console.log(e.target.value);
+    // },
+
+    clearMap : function () {
+      console.log( "test" );
+      this.refs.mapref.clearMap();
+    },
+
     render: function () {
        var data = this.state.data
         return (
@@ -67,9 +86,11 @@ var Map = React.createClass({
 
                 <main className="cf">
                 <section className="map">
-                      <DroneMap data={data} onMarkerClick={this.setDetails} />
+                      <DroneMap data={data} onMarkerClick={this.setDetails} ref="mapref"/>
                   </section>
+                  {/*<MapFilter />*/}
                   <MapFilter />
+                  <button onClick={this.clearMap}>Clear Map</button>
                   <Casualties strike={this.state.strike} />
                   
                 </main>
