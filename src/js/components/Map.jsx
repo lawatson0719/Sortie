@@ -14,7 +14,7 @@ var Link = require('react-router').Link;
 var Details = require('./Details.jsx');
 var Casualties = require('./Casualties.jsx');
 var YearFilter = require('./YearFilter.jsx');
-
+var GrandTotals = require('./GrandTotals.jsx');
 
 
 function getActiveClass (path) {
@@ -115,6 +115,7 @@ var Map = React.createClass({
 
                
                   <Casualties strike={this.state.strike} />
+                  
                   
                 </main>
                 <footer>
