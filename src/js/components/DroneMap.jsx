@@ -23,26 +23,11 @@ var DroneMap = React.createClass({
   
   getInitialState : function(){
     return null;
-    /*
-      var data = this.props.data;
-      var latitude = +data.lat;
-      var longitude = +data.lon;
-      
-      return {
-        lat: latitude,
-        lon: longitude,
-        zoom: 8,
-      };
-    */
   },
 
   componentWillReceiveProps: function (nextProps) {
-
-    // console.log( nextProps );
-
-    // You don't have to do this check first, but it can help prevent an unneeded render
+    
     this.setState({
-      // nextProps.data currently does not allow for markers to be shown on map
       data : nextProps, 
       markers : [],
       year : nextProps.year
@@ -50,16 +35,9 @@ var DroneMap = React.createClass({
     return null;
   },
 
-  clearMap: function () {
-    // console.log("clear map function received!!!");
-    // this.state.markers.clearLayers();
-    // console.log({this.refs.leafletref});
-  },
-
   render : function() {
 
     var zoom = 4;
-    // var markers = this.state.markers;
     var position = [14.39,44.9];
     var data;
 
@@ -94,7 +72,6 @@ var DroneMap = React.createClass({
           markers.push(<DroneMarker key={i} position={position} strike={this.props.data[i]} onMarkerClick={this.props.onMarkerClick} />);
         }
 
-        //this.state.markers.push(<DroneMarker key={i} position={position} strike={data[i]} onMarkerClick={this.props.onMarkerClick} />);
       }
     }
       

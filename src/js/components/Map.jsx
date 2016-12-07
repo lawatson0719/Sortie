@@ -113,7 +113,7 @@ var Map = React.createClass({
                     </div>
                 </form>
 
-                  <button onClick={this.clearMap}>Clear Map</button>
+               
                   <Casualties strike={this.state.strike} />
                   
                 </main>
