@@ -12,53 +12,65 @@ var Graph = React.createClass({
 
     getInitialState : function(){
 
+        var data = {
+                lineChart: [{
+                    date : '2006-02-22',
+                    label : 'foo',
+                    value : 2000
+                }, {
+                    date : '2006-08-22',
+                    label : 'bar',
+                    value : 1000
+                }, {
+                    date : '2007-01-11',
+                    label : 'baz',
+                    value : 700
+                }, {
+                    date : '2008-10-01',
+                    label : 'boing',
+                    value : 534
+                }, {
+                    date : '2009-02-24',
+                    label : 'loool',
+                    value : 1423
+                }, {
+                    date : '2010-12-30',
+                    label : 'YEAH',
+                    value : 1222
+                }, {
+                    date : '2011-05-15',
+                    label : 'Hurray',
+                    value : 948
+                }, {
+                    date : '2012-04-02',
+                    label : 'WTF',
+                    value : 1938
+                }, {
+                    date : '2013-08-19',
+                    label : 'OMG',
+                    value : 1245
+                }, {
+                    date : '2013-11-11',
+                    label : 'ROFL',
+                    value : 888
+                }]
+            };
+
+        // parse helper functions on top
+        var parse = d3.time.format('%Y-%m-%d').parse;
+
+        // data manipulation first
+        data.lineChart = data.lineChart.map( function( datum ){
+
+            datum.date = parse( datum.date );
+            return datum;
+        });
+
         return {
             chartId : 'lineChart',
             duration : 1500,
             delay : 500,
-            data : {
-                lineChart: [{
-                  date: '2006-02-22',
-                  label: 'foo',
-                  value: 2000
-                }, {
-                  date: '2006-08-22',
-                  label: 'bar',
-                  value: 1000
-                }, {
-                  date: '2007-01-11',
-                  label: 'baz',
-                  value: 700
-                }, {
-                  date: '2008-10-01',
-                  label: 'boing',
-                  value: 534
-                }, {
-                  date: '2009-02-24',
-                  label: 'loool',
-                  value: 1423
-                }, {
-                  date: '2010-12-30',
-                  label: 'YEAH',
-                  value: 1222
-                }, {
-                  date: '2011-05-15',
-                  label: 'Hurray',
-                  value: 948
-                }, {
-                  date: '2012-04-02',
-                  label: 'WTF',
-                  value: 1938
-                }, {
-                  date: '2013-08-19',
-                  label: 'OMG',
-                  value: 1245
-                }, {
-                  date: '2013-11-11',
-                  label: 'ROFL',
-                  value: 888
-                }]
-              }
+            data : data
         };
     },
 
@@ -76,9 +88,10 @@ var Graph = React.createClass({
 
     // }
 
- componentDidMount: function () {
+    componentDidMount: function () {
         
-        var that = this;
+        var that = this,
+            resizeTimer;
 
         // var linedata = this.state.data.lineChart;
         // var DURATION = this.state.duration;
@@ -86,55 +99,45 @@ var Graph = React.createClass({
 
         this.drawLineChart( this.state.chartId, this.state.data.lineChart, this.state.duration ); 
 
-        // window.addEventListener( "resize", function(){
+        window.addEventListener( "resize", function(){
 
-        //     console.log("awww, yeah!");
-        //     that.reset.call( that );
-        // } );
+            clearTimeout( resizeTimer );
+            
+            resizeTimer = setTimeout( function() {
+
+                // Run code here, resizing has "stopped"  
+                that.reset.call( that );
+
+            }, 250 );
+        } );
     },
-
 
     render: function () {
 
-        
-   
-
         return (
-            <div className="graph" >
-                <div className="charts--container" id="lineChart">
-                    <svg id="lineChartSVG" className="lineChart--svg" >
+            <div className="graph">
+                <div className="charts--container" id="lineChart" >
+                    <svg id="lineChartSVG" className="lineChart--svg">
                         <defs>
                             <linearGradient id="lineChart--gradientBackgroundArea" x1="0" x2="0" y1="0" y2="1">
                                 <stop className="lineChart--gradientBackgroundArea--top" offset="0%" />
                                 <stop className="lineChart--gradientBackgroundArea--bottom" offset="100%" />
                             </linearGradient>
-                      </defs>
+                        </defs>
+                        <g className="inner"></g>
+                        <g className="circleContainer"></g>
                     </svg>
                 </div>
             </div>
         );
     },
 
-   reset : function(){
-        this.setState( { chartId : 'lineChart' } );
+    reset : function(){
+
         this.drawLineChart( this.state.chartId, this.state.data.lineChart, this.state.duration ); 
     },
   
-
-
     drawLineChart: function ( elementId, data, DURATION ){
-
-        // parse helper functions on top
-        var parse = d3.time.format('%Y-%m-%d').parse;
-        
-        console.log(data);
-
-        // data manipulation first
-        data = data.map( function( datum ){
-            datum.date = parse( datum.date );
-            return datum;
-        });
-
 
         // TODO code duplication check how you can avoid that
         var containerEl = document.getElementById( elementId ),
@@ -158,13 +161,15 @@ var Graph = React.createClass({
                 .attr('width', width)
                 .attr('height', height + margin.top),
 
+            inner = svg.select( '.inner' ).html(""),
+            circleContainer = svg.select( '.circleContainer' ).html(""),
+
             x = d3.time.scale().range([padding, width - detailWidth]),
+            y = d3.scale.linear().range([height, 0]),
             
             xAxis = d3.svg.axis().scale(x)
                 .ticks(8)
                 .tickSize(-height),
-
-            y = d3.scale.linear().range([height, 0]),
             
             yAxis = d3.svg.axis().scale(y)
                 .ticks(6)
@@ -187,28 +192,24 @@ var Graph = React.createClass({
                     date: datum.date,
                     value: 0
                 };
-            }),
-
-            circleContainer;
+            });
 
             // Compute the minimum and maximum date, and the maximum price.
             x.domain([data[0].date, data[data.length - 1].date]);
-            
             // hacky hacky hacky :(
             y.domain([ 0, d3.max(data, function(d) { return d.value; }) + 700 ] );
-          
 
-        svg.append( 'g' )
+        inner.append( 'g' )
             .attr( 'class', 'lineChart--xAxis' )
             .attr( 'transform', 'translate(' + detailWidth / 2 + ',' + ( height + 7 ) + ')')
             .call( xAxis );
 
-        svg.append('g')
+        inner.append('g')
             .attr('class', 'lineChart--yAxis')
             .attr('transform', 'translate(0)')
             .call(yAxis);
 
-        svg.append('path')
+        inner.append('path')
             .datum(startData)
             .attr('class', 'lineChart--areaLine')
             .attr('d', line)
@@ -220,7 +221,7 @@ var Graph = React.createClass({
                 drawCircles(data);
             });
 
-        svg.append('path')
+        inner.append('path')
             .datum(startData)
             .attr('class', 'lineChart--area')
             .attr('d', area)
@@ -230,6 +231,7 @@ var Graph = React.createClass({
 
         // Helper functions!!!
         function drawCircle(datum, index) {
+            
             circleContainer.datum(datum)
                 .append('circle')
                 .attr('class', 'lineChart--circle')
@@ -278,18 +280,22 @@ var Graph = React.createClass({
                 }
             })
             .transition()
-            .delay(DURATION / 10 * index)
-            .attr('r', 6);
+            .delay( DURATION / 10 * index)
+            .attr( 'r', 6 );
         }
 
         function drawCircles(data) {
-            circleContainer = svg.append('g');
+
+            circleContainer.html("");
 
             data.forEach(function(datum, index) {
+
                 drawCircle(datum, index);
             });
         }
+
         function hideCircleDetails() {
+
             circleContainer.selectAll('.lineChart--bubble').remove();
         }
 
@@ -342,15 +348,9 @@ var Graph = React.createClass({
             };
         }
     },
-
-    componentDidUpdate : function(){
-        
-    },
     
     componentWillUnmount: function() {
-        //drawLineChart( this.state.chartId, this.state.data.lineChart, this.state.duration );
         window.removeEventListener( "resize", this.reset );
-        
     }
 });
 
