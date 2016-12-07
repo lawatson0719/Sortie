@@ -8,7 +8,8 @@ var YearFilter = React.createClass({
 
     getInitialState: function () {
         return {
-            drones: droneStore.getDroneStrikes()
+            drones: droneStore.getDroneStrikes(),
+            filterYear: 'all'
         }
     },
 

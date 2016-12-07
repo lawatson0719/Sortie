@@ -109,8 +109,8 @@ var DroneMap = React.createClass({
     return (
       <Map center={position} zoom={zoom} ref="leafletref">
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='https://api.mapbox.com/styles/v1/montytotten/ciw8ae2bw000w2qme1ie8s9cf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+          url='https://api.mapbox.com/styles/v1/montytotten/ciwf2pmjd00382plko7jgoukd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW9udHl0b3R0ZW4iLCJhIjoiY2l3M3ZvNTg1MDNtdDJvanZicjhvOGpoeiJ9.kSSJlSMxuMzf-Relwp9dOg'
         />
         {this.state.markers}
       </Map>
