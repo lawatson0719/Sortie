@@ -33,28 +33,23 @@ var Map = React.createClass({
     },
 
     componentDidMount : function () {
-      var _this = this;
-
-      // console.log( "mounting" );
+      
+      var _this    = this;
       var response = droneStore.fetchDroneStrikes();
 
       response.done( function( msg ){
 
+        console.log( "fetched" );
+
         _this.setState({
-          data: msg.strike
+            data: msg.strike
         });
       } );
     },
 
     handleYearChange : function ( e ) {
 
-      // this.setState({ year : val } );
-
       this.setState( { year : e.target.value } );
-      
-      // console.log(e.target.value);
-
-      // console.log( "val", val );
     },
 
     // handleCountryChange : function (e) {
@@ -70,6 +65,7 @@ var Map = React.createClass({
     },
 
     render: function () {
+
         var data = this.state.data;
         var year = this.state.year;
 
@@ -79,9 +75,7 @@ var Map = React.createClass({
                     <div className="logo-container">
                         <img className="logo" src="assets/images/whitelogo.png"/>
                     </div>
-                    <nav>
-                        <Link to="stats" className={getActiveClass('stats')}>STATS</Link>
-                    </nav>
+                    
                 </header>
 
                 <main className="cf">

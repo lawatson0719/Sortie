@@ -1,7 +1,6 @@
 var React = require('react');
 var droneStore = require('../stores/droneStore.js');
 
-
 var TotalsView = React.createClass ({
 
     getInitialState: function () {
