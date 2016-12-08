@@ -37,7 +37,7 @@ var CivilianTotals = React.createClass({
 		
 		return (
 				<div id="civilian" className="casualties">
-                    <h4>Total</h4>
+                    <h4>Civilian</h4>
                     <div>{maxCivilDeaths}</div>
                 </div>
 		)
