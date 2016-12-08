@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 
 var droneStore = require('../stores/droneStore.js');
 var AvgTotalFilter = require('./AvgTotalFilter.jsx');
-var MonthYearFilter = require('./MonthYearFilter.jsx');
 var StrikesDeathsFilter = require('./StrikesDeathsFilter.jsx');
 
 var StatsFilter = React.createClass ({
@@ -16,9 +15,6 @@ var StatsFilter = React.createClass ({
 			<form className="cf stats">
 				<div className="filter-container">
 					<AvgTotalFilter />
-				</div>
-				<div className="filter-container">
-					<MonthYearFilter />
 				</div>
 				<div className="filter-container">
 					<StrikesDeathsFilter />

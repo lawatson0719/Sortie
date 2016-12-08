@@ -20,7 +20,9 @@ var Stats = React.createClass({
 
 	getInitialState: function () {
         return {
-            drones: droneStore.getDroneStrikes()
+            drones: droneStore.getDroneStrikes(),
+            year: 'all',
+            currentStrike: null
         }
     },
 
@@ -33,7 +35,21 @@ var Stats = React.createClass({
         })
     },
 
+    handleYearChange : function ( e ) {
+
+      // this.setState({ year : val } );
+
+      this.setState( { year : e.target.value } );
+      
+      console.log(e.target.value);
+
+      // console.log( "val", val );
+    },
+
     render: function () {
+
+    	var data = this.state.data;
+        var year = this.state.year;
             
         return (
 	        <div>
@@ -46,8 +62,28 @@ var Stats = React.createClass({
 	                </nav>
 	            </header>
 	            <main className="cf">
-	            	<Graph />
-		    		<StatsFilter />
+	            	<Graph year={year} data={data} onChange={this.props.handleFilter} />
+		    		<div className="filter-container">
+						<label className="year" htmlFor="year">Year</label>
+						<select className="filters increment" onChange={this.handleYearChange} value={this.state.year}>
+		                    <option value={'all'} default>All Years</option>
+		                    <option value={2016}>2016</option>
+		                    <option value={2015}>2015</option>
+		                    <option value={2014}>2014</option>
+		                    <option value={2013}>2013</option>
+		                    <option value={2012}>2012</option>
+		                    <option value={2011}>2011</option>
+		                    <option value={2010}>2010</option>
+		                    <option value={2009}>2009</option>
+		                    <option value={2008}>2008</option>
+		                    <option value={2007}>2007</option>
+		                    <option value={2006}>2006</option>
+		                    <option value={2005}>2005</option>
+		                    <option value={2004}>2004</option>
+		                    <option value={2003}>2003</option>
+		                    <option value={2002}>2002</option>
+		                </select>
+					</div>
 		        	<ShortSummary />
 		        	<GrandTotals />	
 	            </main>
@@ -57,6 +93,18 @@ var Stats = React.createClass({
 	        </div>
 
         )
+    },
+
+    setDetails: function (strike) {
+      this.setState({
+        strike: strike
+      });
+    },
+
+    handleFilter: function (array) { 
+        this.setState({ 
+          filteredArray: array 
+        });
     }
 })
 

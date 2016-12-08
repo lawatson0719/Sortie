@@ -19,7 +19,7 @@ var jsx = (
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Map} />
-		<Route path="/stats" component={Stats}/>
+			<Route path="/stats" component={Stats}/>
 		</Route>
 	</Router>
 	

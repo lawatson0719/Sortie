@@ -35,11 +35,18 @@ var DroneMap = React.createClass({
     return null;
   },
 
+  filterInt: function (value) {
+    if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+      return Number(value);
+    return NaN;
+  },
+
   render : function() {
 
     var zoom = 4;
     var position = [14.39,44.9];
     var markers = [];
+
     var yearStruck;
     var year;
 
@@ -66,7 +73,39 @@ var DroneMap = React.createClass({
                 );
             }
         }
+
+    // var _this = this;
+    // // if (year === 'all') {
+
+    // //   markers = this.props.data.map(function(data) {
+
+    // //     return <DroneMarker key={i} position={[data.lat, data.lon]} strike={data} onMarkerClick={_this.props.onMarkerClick} />;
+
+    // //   })
+
+    // // } else  {
+
+
+    // for (var i = 0; i < this.props.data.length; i++) {
+      
+    //   var tester = this.filterInt(parseInt(this.props.data[i].lat));
+      
+    //   if (isNaN(tester) === false) {
+    //     position = [ this.props.data[i].lat, this.props.data[i].lon ];
+
+    //     if (this.props.year === 'all') {
+    //       markers.push(<DroneMarker key={i} position={position} strike={this.props.data[i]} onMarkerClick={this.props.onMarkerClick} />);
+    //     } else {
+    //       var yearStruck = parseInt(this.props.data[i].date.split('-').shift())
+          
+    //       if (yearStruck == this.props.year) {
+    //         markers.push(<DroneMarker key={i} position={position} strike={this.props.data[i]} onMarkerClick={this.props.onMarkerClick} />);
+    //       }
+    //     }
+    //   }
+
     }
+    
       
     return (
       <Map center={position} zoom={zoom} ref="leafletref">
