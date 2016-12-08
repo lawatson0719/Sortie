@@ -62,12 +62,10 @@ var Stats = React.createClass({
 	                </nav>
 	            </header>
 	            <main className="cf">
-	            	<Graph year={year} data={data} onChange={this.props.handleFilter} />
+	            	 <form className="cf hide">
 		    		<div className="filter-container">
-						<label className="year" htmlFor="year">Year</label>
-						<select className="filters increment" onChange={this.handleYearChange} value={this.state.year}>
-		                    <option value={'all'} default>All Years</option>
-		                    <option value={2016}>2016</option>
+						<select className="filters-increment" onChange={this.handleYearChange} value={this.state.year}>
+		 					<option value={2016}>2016</option>
 		                    <option value={2015}>2015</option>
 		                    <option value={2014}>2014</option>
 		                    <option value={2013}>2013</option>
@@ -84,6 +82,8 @@ var Stats = React.createClass({
 		                    <option value={2002}>2002</option>
 		                </select>
 					</div>
+					</form>
+					<Graph year={year} data={data} onChange={this.props.handleFilter} />
 		        	<ShortSummary />
 		        	<GrandTotals />	
 	            </main>

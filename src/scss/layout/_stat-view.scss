@@ -13,9 +13,11 @@
 	}
 }
 
-
+.hide {
+	display: none;
+}
 .stats {
-	margin: 0 2.5%;
+	margin: 0 2.6%;
 	.filter-container {
 		width: 33.33%;
 		float: left;
@@ -62,12 +64,12 @@
 	font-weight: 500;
 	text-transform: uppercase;
 }
+
 h2 {
 	font-family: $mont;
 	font-weight: 700;
 	text-transform: uppercase;
 }
-
 
 .description {
 	display: none;
@@ -90,24 +92,35 @@ h2 {
 		}
 	}
 
-	.stats {
-		width: 35%;
-		height: 75px; 
-		margin: 0 1.5%;
-		padding-top: 2px;
+	.hide {
+		margin: 0 1.8%;
+		display: block;
 		.filter-container {
+			margin-top: 20px;
+			width: 36%;
 			float: left;
-			margin-top: 21px;
+
+			.filters-increment {
+			width: 15%;
+			height: 35px;
+			font-family: $libre;
+			font-weight: 300;
+			border: 1px solid #D0D6D9;
+			cursor: pointer;
+			outline: none;
+			position: absolute;
+			top: 110px;
+			}
 		}
 	}
 
 	.description {
 		display: block;
 		width: 34.9%;
-		height: 374px;
+		height: 393px;
 		background-color: $lightBeige;
-		margin-left: 1.5%;
-		margin-top: -4px;
+		margin-left: 1.8%;
+		margin-top: 70px;
 		h2 {
 			padding-top: 30px;
 			width: 100%;
@@ -122,14 +135,11 @@ h2 {
 			font-weight: 300;
 		}
 	}
-
-	form {
-		display: block;
+	.statssec {
+		margin-left: 1.8%;
 	}
 	.type {
 		margin-left: 0px;
 	}
-
-
 
 }

@@ -9,7 +9,7 @@ var GrandTotals = React.createClass ({
 
 	render: function () {
 		return (
-			<section>
+			<section className="statssec">
 				<h2>Casualties</h2>
 					<CivilianTotalsView />
 					<TotalsView />

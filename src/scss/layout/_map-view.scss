@@ -22,10 +22,10 @@ section {
 
 .box {
     background-color: $lightBeige;
-    // width: 92%;
     margin: 20px auto;
     display: block;
 }
+
 .casualties {
     background-color: $beige;
     width: 45%;
@@ -124,23 +124,13 @@ a {
 		 	margin-top: 20px;
 			width: 48%;
 			position: absolute;
-			left: 39px;
-			// left: 40;
-		}
-		.map-container {
-			
-		}
-		.map-container-years {
-			// right: -17px;
-			// float: right;
+			left: 37px;
 		}
 		.year {
-			// margin-bottom: 5px;
 			display: block;
 			font-family: $libre;
 			font-weight: 700;
 			position: absolute;
-    		// top: 9px;
     		text-transform: uppercase;
 		}
 		.years {
@@ -152,13 +142,12 @@ a {
 			cursor: pointer;
 			outline: none;
 			position: absolute;
-    		// left: 287px;
 		}
 	}			
 	
 	#non-totals {
-		margin-left: 3%;
-		margin-top: 10px;
+		margin-left: 37px;
+		margin-top: 8px;
 		display: block;
 		h1 {
     		padding-top: 25px;
