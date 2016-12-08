@@ -35,11 +35,11 @@ var DroneMap = React.createClass({
     return null;
   },
 
-  filterInt: function (value) {
-    if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-      return Number(value);
-    return NaN;
-  },
+  // filterInt: function (value) {
+  //   if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+  //     return Number(value);
+  //   return NaN;
+  // },
 
   render : function() {
 
