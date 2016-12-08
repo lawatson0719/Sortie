@@ -24,7 +24,6 @@ function getActiveClass (path) {
 var Stats = React.createClass({
 
 	getInitialState: function () {
-<<<<<<< HEAD
 
 		return {
 			drones: droneStore.getDroneStrikes(),
