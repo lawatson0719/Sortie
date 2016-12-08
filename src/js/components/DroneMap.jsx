@@ -43,7 +43,7 @@ var DroneMap = React.createClass({
 
   render : function() {
 
-    var zoom = 4;
+    var zoom = 3;
     var position = [14.39,44.9];
     var markers = [];
 

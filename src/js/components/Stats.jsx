@@ -8,11 +8,13 @@ var Link = require('react-router').Link;
 var TotalsView = require('./TotalsView.jsx');
 var CivilianTotalsView = require ('./CivilianTotalsView.jsx');
 var GrandTotals = require('./GrandTotals.jsx');
+var Casualties = require('./Casualties.jsx');
 var ShortSummary = require('./ShortSummary.jsx');
 var StatsFilter = require('./StatsFilter.jsx');
 var Graph = require('./Graph.jsx');
 var droneStore = require('../stores/droneStore.js');
 var Casualties = require('./Casualties.jsx');
+
 
 function getActiveClass (path) {
 	var current = window.location.hash.slice(1);
@@ -22,6 +24,7 @@ function getActiveClass (path) {
 var Stats = React.createClass({
 
 	getInitialState: function () {
+<<<<<<< HEAD
 
 		return {
 			drones: droneStore.getDroneStrikes(),
@@ -91,6 +94,7 @@ var Stats = React.createClass({
 							<option value={2002}>2002</option>
 						</select>
 					</div>
+
 					
 					<Casualties strike={this.state.strike} />
 					

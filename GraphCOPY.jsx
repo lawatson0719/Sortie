@@ -3,7 +3,6 @@ var d3 = require('d3');
 var droneStore = require('../stores/droneStore.js');
 var $ = require('jquery')
 
-
 // var data = require('../stores/AllJSONData.json')
 
 // $.getJSON('../stores/AllJSONData.json', function(json) {
@@ -15,17 +14,13 @@ var $ = require('jquery')
 // var tween = require('TWEEN.js');
 // var $ = require('jquery');
 
-
 var Graph = React.createClass({
-
     getInitialState: function () {
 
-        var drones = droneStore.getDroneStrikes();
-        var data   = this.getArray( drones );
+        var s = droneStore.getDroneStrikes();
 
         return {
-            drones   : drones,
-            state    : data,
+            drones   : s,
             chartId  : 'lineChart',
             duration : 1500,
             delay    : 500
@@ -36,19 +31,19 @@ var Graph = React.createClass({
 
         var dataArray = [];
         var inputData = s;
-        
-        for( var i = 0; i < s; i++ ){
-            
-            var graphData = {};
-                
-                graphData.date = inputData[ i ].date.slice( 0, inputData[ i ].date.length -14 );
-                graphData.label = 'deaths';
-                graphData.value = +inputData[ i ].deaths_max;
-            
-            if( isNaN( graphData.value ) === true ){ graphData.value = 0; }
-            
-            dataArray.push( graphData );
 
+        for (var i = 0; i < this.state.drones.length; i++) {
+            var graphData = {}
+                graphData.date = inputData[i].date.slice(0, inputData[i].date.length -14);
+                graphData.label = 'deaths';
+                graphData.value = +inputData[i].deaths_max;
+            
+            if (isNaN(graphData.value) === true) {
+                     graphData.value = 0;
+            }
+            
+            dataArray.push(graphData);
+            console.log( graphData )
         }
 
         var obj = {};
@@ -58,60 +53,14 @@ var Graph = React.createClass({
         return obj;
     },
 
-    componentWillMount: function () {
+    componentReceivedData : function () {
 
-        var _this = this,
-            resizeTimer;
+        var data = this.getArray( this.state.drones );
 
-        console.log( "willmount" );
+        console.log( "received data", data.lineChart );
 
-        window.addEventListener( "resize", function(){
+        this.setState({ data: data });
 
-            clearTimeout( resizeTimer );
-            
-            resizeTimer = setTimeout( function() {
-
-                // Run code here, resizing has "stopped"  
-                _this.reset.call( _this );
-
-            }, 250 );
-        } );
-
-        droneStore.on('update', function () {
-
-            _this.setState({
-                drones: droneStore.getDroneStrikes()
-            });
-
-            // Run code here, resizing has "stopped"  
-            _this.reset.call( _this );
-        });
-    },
-
-    componentDidMount : function(){
-
-        var _this = this;
-
-        var response = droneStore.fetchDroneStrikes();
-
-        console.log( "mounting", response );
-
-        response.done( function( msg ){
-
-            var data = this.getArray( msg.strike );
-
-            console.log( "strikes", msg.strike );
-
-            _this.setState({
-                drones: msg.strike,
-                data : data
-            });
-
-            _this.reset();
-        } );
-
-
-        var data = this.state.data;
         // parse helper functions on top
         var parse = d3.time.format('%Y-%m-%d').parse;
 
@@ -120,6 +69,38 @@ var Graph = React.createClass({
 
             datum.date = parse( datum.date );
             return datum;
+        });
+        console.log( "recieved: " + data )
+        this.reset();
+    },
+
+
+    componentWillMount: function () {
+
+        var _this = this,
+            resizeTimer;
+
+        // this.drawLineChart( this.state.chartId, this.state.data.lineChart, this.state.duration );
+        window.addEventListener( "resize", function(){
+
+            clearTimeout( resizeTimer );
+            
+            resizeTimer = setTimeout( function() {
+
+                console.log( "merf" );
+                // Run code here, resizing has "stopped"  
+                _this.reset.call( _this );
+
+            }, 250 );
+        } );
+
+        droneStore.on( 'update', function () {
+            
+            _this.setState({
+                drones: droneStore.getDroneStrikes()
+            })
+
+            _this.componentReceivedData();
         });
     },
     
@@ -147,24 +128,24 @@ var Graph = React.createClass({
         );
     },
 
-    // reset : function(){
+    reset : function(){
 
-    //     var data = [], yearStruck;
+       var data = [], yearStruck;
 
-    //     if( this.state === null ){ return null; }
-    
-    //     for ( var j = 0; j < this.state.data.lineChart.length; j++) {
+       if( this.state === null ){ return null; }
+   
+       for ( var j = 0; j < this.state.data.lineChart.length; j++) {
 
-    //         yearStruck = parseInt( this.state.data.lineChart[ j ].date.getFullYear() );
-          
-    //         if( this.props.year === 'all' || this.props.year === yearStruck ){
-                
-    //             data.push( this.state.data.lineChart[ j ] );    
-    //         }
-    //     }
+           yearStruck = parseInt( this.state.data.lineChart[ j ].date.getFullYear() );
+         
+           if( this.props.year === 'all' || this.props.year === yearStruck ){
+               
+               data.push( this.state.data.lineChart[ j ] );    
+           }
+       }
 
-    //     this.drawLineChart( this.state.chartId, data, this.state.duration ); 
-    // },
+       this.drawLineChart( this.state.chartId, data, this.state.duration ); 
+   },
   
     drawLineChart: function ( elementId, data, DURATION ){
 
@@ -179,33 +160,33 @@ var Graph = React.createClass({
                 left : 10
             },
 
-            detailWidth  = 98,
+            detailWidth = 98,
             detailHeight = 55,
             detailMargin = 10,
-            padding      = 10,
+            padding = 10,
 
             container = d3.select(containerEl),
 
             svg = container.select('svg')
                 .attr('width', width)
-                .attr('height', height + margin.top  * 2),
+                .attr('height', height + margin.top),
 
             inner = svg.select( '.inner' ).html(""),
             circleContainer = svg.select( '.circleContainer' ).html(""),
 
             x = d3.time.scale().range([padding, width - detailWidth]),
-            y = d3.scale.linear().range([height, 0]);
-
-            var xAxis = d3.svg.axis().scale(x)
+            y = d3.scale.linear().range([height, 0]),
+            
+            xAxis = d3.svg.axis().scale(x)
                 .ticks(8)
                 .tickSize(-height),
             
             yAxis = d3.svg.axis().scale(y)
-                .ticks(12)
+                .ticks(6)
                 .tickSize(-width)
-                .orient("right");
+                .orient("right"),
 
-            var area = d3.svg.area()
+            area = d3.svg.area()
                 .interpolate( 'linear' )
                 .x( function( d ){ return x(d.date) + detailWidth / 2; })
                 .y0( height )
@@ -224,10 +205,9 @@ var Graph = React.createClass({
             });
 
             // Compute the minimum and maximum date, and the maximum price.
-            x.domain( [ data[ 0 ].date, data[ data.length - 1 ].date ] );
-
+            x.domain([data[0].date, data[data.length - 1].date]);
             // hacky hacky hacky :(
-            y.domain( [ 0, d3.max( data, function(d) { return d.value; } ) ] );
+            y.domain([ 0, d3.max(data, function(d) { return d.value; }) + 700 ] );
 
         inner.append( 'g' )
             .attr( 'class', 'lineChart--xAxis' )
@@ -237,7 +217,7 @@ var Graph = React.createClass({
         inner.append('g')
             .attr('class', 'lineChart--yAxis')
             .attr('transform', 'translate(0)')
-            .call( yAxis );
+            .call(yAxis);
 
         inner.append('path')
             .datum(startData)
@@ -362,7 +342,7 @@ var Graph = React.createClass({
             text.append('tspan')
                 .attr('class', 'lineChart--bubble--value')
                 .attr('x', detailWidth / 2)
-                .attr('y', detailHeight / 1.3)
+                .attr('y', detailHeight / 1.7)
                 .attr('text-anchor', 'middle')
                 .text(data.value);
         }
