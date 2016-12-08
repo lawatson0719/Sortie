@@ -23,7 +23,7 @@ droneStore.fetchDroneStrikes = function () {
         }
     };
 
-    return $.ajax(options);
+    return $.ajax( options );
 };
 
 // overlay.componentDidMount = function() {

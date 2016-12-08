@@ -21,8 +21,20 @@ function getActiveClass (path) {
 var App = React.createClass({	
 
 	getInitialState: function () {
+
+		var _that = this,
+			d     = droneStore.fetchDroneStrikes();
+
+		d.done( function(){
+
+			console.log( "updating" );
+			_that.updateDrones();
+		} );
+
+		console.log( d );
+
 		return {
-			drones: droneStore.fetchDroneStrikes()
+			drones: d
 		};
 	},
 
@@ -35,7 +47,6 @@ var App = React.createClass({
 			drones: droneStore.getDroneStrikes()
 		});
 	},
-
 
 	render: function () {
 			
