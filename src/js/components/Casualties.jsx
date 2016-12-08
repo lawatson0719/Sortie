@@ -11,7 +11,7 @@ var Casualties = React.createClass({
 
 	render: function(){
 		var details = (
-				<p className="nodetails">To load data, click a marker.</p>
+				<p className="nodetails">Click a drone strike to load it's information</p>
 			)
 		if (this.props.strike) {
 			details = (

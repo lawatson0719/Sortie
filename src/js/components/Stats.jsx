@@ -6,10 +6,12 @@ var Overlay = require('./Overlay.jsx')
 var Link = require('react-router').Link;
 
 var GrandTotals = require('./GrandTotals.jsx');
+var Casualties = require('./Casualties.jsx');
 var ShortSummary = require('./ShortSummary.jsx');
 var StatsFilter = require('./StatsFilter.jsx');
 var Graph = require('./Graph.jsx');
 var droneStore = require('../stores/droneStore.js')
+
 
 function getActiveClass (path) {
     var current = window.location.hash.slice(1);
@@ -19,14 +21,23 @@ function getActiveClass (path) {
 var Stats = React.createClass({
 
 	getInitialState: function () {
-        return {
+        // return {
+        //     drones: '',
+        //     year: '',
+        //     currentStrike: ''
+        // }
+        return {}
+    },
+
+    componentWillMount: function () {
+    	return {
             drones: droneStore.getDroneStrikes(),
             year: 'all',
             currentStrike: null
         }
     },
 
-    componentWillMount: function () {
+    componentDidMount: function () {
         var _this = this;
         droneStore.on('update', function () {
             _this.setState({
@@ -45,6 +56,10 @@ var Stats = React.createClass({
 
       // console.log( "val", val );
     },
+
+    componentWillUnmount () {
+	    console.log('unmount stats')
+	},
 
     render: function () {
 
@@ -84,12 +99,11 @@ var Stats = React.createClass({
 		                    <option value={2002}>2002</option>
 		                </select>
 					</div>
-		        	<ShortSummary />
-		        	<GrandTotals />	
+		        	<Casualties />
 	            </main>
 	            <footer>
-	              <small>&copy; 2016 Sortie All Rights Reserved</small>
-	            </footer>
+	            	<small>&copy; 2016 Sortie All Rights Reserved</small>
+        		</footer>
 	        </div>
 
         )

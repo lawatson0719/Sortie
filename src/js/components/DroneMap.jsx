@@ -35,15 +35,15 @@ var DroneMap = React.createClass({
     return null;
   },
 
-  filterInt: function (value) {
-    if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-      return Number(value);
-    return NaN;
-  },
+  // filterInt: function (value) {
+  //   if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+  //     return Number(value);
+  //   return NaN;
+  // },
 
   render : function() {
 
-    var zoom = 4;
+    var zoom = 3;
     var position = [14.39,44.9];
     var markers = [];
 
