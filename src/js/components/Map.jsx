@@ -6,9 +6,9 @@ var droneStore = require('../stores/droneStore.js')
 
 
 var Link = require('react-router').Link;
-// var Stats = require('./Stats.jsx');
-// var DroneList = require('./DroneList.jsx')
-// var DroneDetails = require('./DroneDetails.jsx')
+var Stats = require('./Stats.jsx');
+var DroneList = require('./DroneList.jsx')
+var DroneDetails = require('./DroneDetails.jsx')
 
 // var MapView = require('./MapView.jsx');
 var Details = require('./Details.jsx');
@@ -52,11 +52,11 @@ var Map = React.createClass({
       this.setState( { year : e.target.value } );
     },
 
-    // handleCountryChange : function (e) {
-    //   // console.log('you changed: ' + e.target.value);
-    //   this.setState({filterCountry: e.target.value});
-    //   console.log(e.target.value);
-    // },
+    handleCountryChange : function (e) {
+      // console.log('you changed: ' + e.target.value);
+      this.setState({filterCountry: e.target.value});
+      console.log(e.target.value);
+    },
 
     clearMap : function () {
 
