@@ -58,10 +58,10 @@ var DroneMap = React.createClass({
     
     for ( var j = 0; j < this.props.data.length; j++) {
 
-        position = [ this.props.data[ j ].lat, this.props.data[ j ].lon ];
+        position = [ parseInt(this.props.data[ j ].lat), parseInt(this.props.data[ j ].lon) ];
         yearStruck = parseInt( this.props.data[ j ].date.split( '-' ).shift() );
       
-        if( position[0] !== '' && position[1] !== '' ){
+        if( !isNaN(position[0]) && !isNaN(position[1]) ){
 
             if( year === 'all' || yearStruck == this.props.year ){
                 markers.push(

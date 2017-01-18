@@ -9,7 +9,7 @@
     "build:js": "webpack",
     "css": "node-sass src/scss/main.scss -o dist",
     "watch:css": "node-sass src/scss/main.scss -wo dist",
-    "dev": "npm run watch:js & npm run watch:css & npm run serve & npm start",
+    "dev": "npm run watch:js & npm run watch:css & npm start",
     "postinstall": "cp node_modules/normalize.css/normalize.css lib/"
   },
   "author": "",
