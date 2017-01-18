@@ -1,0 +1,470 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Franklin:100,300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+* {
+  box-sizing: border-box; }
+
+.cf:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+body {
+  background-color: #F0F5F8; }
+
+.cf:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+footer {
+  background-color: #2A2F35;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 300; }
+
+small {
+  color: #d7D6CF;
+  font-weight: lighter; }
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  font-weight: 100; }
+  body ul {
+    list-style: none; }
+  body ul, body li {
+    margin: 0;
+    padding: 0; }
+
+.chart {
+  min-height: 400px;
+  border-bottom: 1px solid #eee;
+  padding: 1em; }
+
+.charts--container {
+  background-color: #fff;
+  width: 100%;
+  padding-left: 3%; }
+  @media screen and (min-width: 700px) {
+    .charts--container {
+      left: 50%;
+      top: 10%;
+      margin: 5em auto;
+      padding-left: 3%; } }
+
+.charts--headline {
+  text-align: center;
+  color: #444;
+  background-color: #fff;
+  padding: 1em; }
+
+.lineChart--area {
+  fill: url(#lineChart--gradientBackgroundArea); }
+
+.lineChart--areaLine {
+  fill: none;
+  stroke: #72787E;
+  stroke-width: 3; }
+
+.lineChart--bubble--label {
+  fill: none;
+  stroke: #6bb7c7;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 100; }
+
+.lineChart--bubble--value {
+  fill: #fff;
+  stroke: #fff;
+  font-size: 21px;
+  font-weight: 100; }
+
+.lineChart--circle {
+  fill: #2A2F35;
+  stroke: #fff;
+  stroke-width: 3; }
+
+.lineChart--circle__highlighted {
+  fill: #fff;
+  stroke: adjust-lightness(#6bb7c7, -15); }
+
+.lineChart--gradientBackgroundArea--top {
+  stop-color: #fff;
+  stop-opacity: 0.1; }
+
+.lineChart--gradientBackgroundArea--bottom {
+  stop-color: #9B906B;
+  stop-opacity: 0.6; }
+
+.lineChart--xAxisTicks .domain, .lineChart--xAxis .domain, .lineChart--yAxisTicks .domain {
+  display: none; }
+
+.lineChart--xAxis {
+  font-size: 13px; }
+  .lineChart--xAxis .tick line {
+    display: block; }
+
+.lineChart--yAxis {
+  font-size: 13px; }
+  .lineChart--yAxis .tick {
+    display: block; }
+
+.pieChart--center--innerCircle {
+  fill: #fff; }
+
+.text {
+  font-size: 16px;
+  text-align: center; }
+
+.text {
+  text-decoration: underline; }
+
+header {
+  background-color: #2A2F35;
+  height: 75px;
+  position: relative; }
+
+.logo-container {
+  width: 50%; }
+
+.logo {
+  height: 50px;
+  position: absolute;
+  top: 12px;
+  left: 12px; }
+
+nav {
+  width: 50%;
+  text-align: right; }
+  nav a {
+    color: #131C3C;
+    text-decoration: none;
+    background-color: #C8C3B2;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 75px;
+    text-align: center; }
+
+.map {
+  width: 100%;
+  height: 70vw;
+  text-align: center;
+  background-color: white;
+  margin: 1.5% 0; }
+  .map .pop {
+    background-color: #C8C3B2; }
+
+section {
+  width: 95%;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #d7D6CF; }
+  section h2 {
+    margin: 0;
+    padding: 15px 0; }
+
+main {
+  margin-bottom: 3px; }
+
+.box {
+  background-color: #d7D6CF;
+  margin: 20px auto;
+  display: block; }
+
+.casualties {
+  background-color: #C8C3B2;
+  width: 45%;
+  height: 125px;
+  display: inline-block;
+  margin: 0 1%;
+  margin-bottom: 5%;
+  text-align: center; }
+  .casualties h4 {
+    margin: 10px auto;
+    margin-top: 15px;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    width: 60%;
+    text-align: center; }
+  .casualties div {
+    font-size: 56px;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 500; }
+
+#non-totals {
+  display: block;
+  background-color: #F0F5F8;
+  margin-bottom: 0; }
+  #non-totals .nodetails {
+    padding-top: 10%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; }
+  #non-totals h1 {
+    padding-top: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; }
+  #non-totals .mapdate {
+    margin-top: -8px;
+    margin-bottom: 0;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 500; }
+  #non-totals .details {
+    background-color: #d7D6CF;
+    margin: 0 auto;
+    height: 207px;
+    display: block;
+    overflow: auto; }
+    #non-totals .details .dets {
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 400;
+      padding-top: 5%;
+      margin-top: -2px;
+      margin-bottom: 80px;
+      padding-left: 5%;
+      padding-right: 5%;
+      margin: 0 auto;
+      padding-bottom: 5%; }
+
+a {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700; }
+
+.hidden {
+  display: none; }
+
+@media screen and (min-width: 800px) {
+  .map {
+    min-width: 755px;
+    width: 60%;
+    height: 687px !important;
+    float: left; }
+  section {
+    width: 34.9%;
+    float: left;
+    margin-left: 1.5%; }
+  .hidden {
+    display: block;
+    height: 65px;
+    width: 40%;
+    float: right;
+    position: relative; }
+    .hidden .map-container,
+    .hidden .map-container-years {
+      margin-top: 20px;
+      width: 48%;
+      position: absolute;
+      left: 37px; }
+    .hidden .year {
+      display: block;
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 700;
+      position: absolute;
+      text-transform: uppercase; }
+    .hidden .years {
+      width: 80%;
+      height: 35px;
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 300;
+      border: 1px solid #D0D6D9;
+      cursor: pointer;
+      outline: none;
+      position: absolute; }
+  #non-totals {
+    margin-left: 37px;
+    margin-top: 8px;
+    display: block; }
+    #non-totals h1 {
+      padding-top: 25px; }
+    #non-totals .mapdate {
+      margin-top: -10px;
+      margin-bottom: 0; }
+    #non-totals .details {
+      background-color: #d7D6CF;
+      margin: 0 auto;
+      height: 393px; }
+      #non-totals .details .dets {
+        padding-top: 8%;
+        padding-left: 0%;
+        padding-right: 0%; } }
+
+#overlay-preload {
+  background: #2A2F35;
+  background: #2A2F35;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 999999;
+  color: #fff;
+  text-align: center; }
+
+.logolay {
+  margin: 0 auto; }
+
+.logooverlay {
+  width: 75vw;
+  margin-top: 140px; }
+
+#overlay-preload span {
+  position: relative;
+  display: block;
+  top: 5%;
+  margin: 0 auto;
+  width: 75%;
+  font-family: "Libre Franklin", sans-serif; }
+
+@media screen and (min-width: 400px) {
+  .logooverlay {
+    width: 90%;
+    text-align: center; }
+  #overlaytext {
+    font-size: 24px; } }
+
+@media screen and (min-width: 1100px) {
+  .logooverlay {
+    width: 80%;
+    text-align: center; }
+  #overlay-preload span {
+    width: 80%; }
+    #overlay-preload span .overlaytext {
+      font-size: 80px; } }
+
+.graph {
+  height: 70vw;
+  width: 95vw;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #FFF;
+  border: 1px solid #D0D6D9; }
+  .graph .default {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 32vw; }
+
+.hide {
+  display: none; }
+
+.stats {
+  margin: 0 2.6%; }
+  .stats .filter-container {
+    width: 33.33%;
+    float: left;
+    margin: 15px auto;
+    height: 30px;
+    border-radius: 0; }
+    .stats .filter-container .filters {
+      width: 95%;
+      display: block;
+      height: 35px;
+      line-height: 30px;
+      border: 1px solid #D0D6D9;
+      cursor: pointer;
+      outline: none;
+      background-color: #FFF;
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 300; }
+    .stats .filter-container .increment {
+      margin: 0 auto; }
+    .stats .filter-container .type {
+      margin-left: 2.5%;
+      float: right; }
+
+.sort {
+  width: 95vw;
+  margin: 0 auto;
+  display: block;
+  height: 50px;
+  text-transform: uppercase;
+  background-color: #C8C3B2;
+  border: none;
+  box-shadow: 0px 3px 6px grey; }
+
+.sort {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.description {
+  display: none; }
+
+@media (min-width: 800px) {
+  .graph {
+    min-width: 755px;
+    width: 60%;
+    height: 670px;
+    float: right;
+    margin-top: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 20px; }
+    .graph .default {
+      margin-top: 285px; }
+  .hide {
+    margin: 0 1.8%;
+    display: block; }
+    .hide .filter-container {
+      margin-top: 20px;
+      width: 36%;
+      float: left; }
+      .hide .filter-container .filters-increment {
+        width: 15%;
+        height: 35px;
+        font-family: "Libre Franklin", sans-serif;
+        font-weight: 300;
+        border: 1px solid #D0D6D9;
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        top: 110px; }
+  .description {
+    display: block;
+    width: 34.9%;
+    height: 393px;
+    background-color: #d7D6CF;
+    margin-left: 1.8%;
+    margin-top: 70px; }
+    .description h2 {
+      padding-top: 30px;
+      width: 100%;
+      text-align: center; }
+    .description p {
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 14px;
+      font-family: "Libre Franklin", sans-serif;
+      font-weight: 300; }
+  .statssec {
+    margin-left: 1.8%; }
+  .type {
+    margin-left: 0px; } }
+
+.leaflet-container {
+  height: 100%;
+  width: 100%; }
+  .leaflet-container .leaflet-popup-content-wrapper {
+    margin: 0 auto;
+    background-color: #F0F5F8;
+    text-align: center; }
+    .leaflet-container .leaflet-popup-content-wrapper .leaflet-popup-content {
+      background-color: #F0F5F8;
+      font-family: "Libre Franklin", sans-serif; }
+  .leaflet-container .leaflet-popup-tip {
+    background-color: #F0F5F8; }
+
+@media screen and (min-width: 800px) {
+  .leaflet-container {
+    min-width: 755px;
+    width: 100%;
+    height: 687px !important;
+    float: left; } }
