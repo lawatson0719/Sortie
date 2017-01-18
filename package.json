@@ -9,7 +9,8 @@
     "build:js": "webpack",
     "css": "node-sass src/scss/main.scss -o dist",
     "watch:css": "node-sass src/scss/main.scss -wo dist",
-    "dev": "npm run watch:js & npm run watch:css & npm start",
+    "dev": "npm run watch:js & npm run watch:css & npm run serve & npm start",
+    "serve": "browser-sync start --proxy 'http://localhost:3000' --files 'dist/*.css, dist/*.js'",
     "postinstall": "cp node_modules/normalize.css/normalize.css lib/"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "babel-loader": "^6.2.7",
     "babel-preset-react": "^6.16.0",
     "body-parser": "^1.15.2",
+    "browser-sync": "^2.18.2",
     "d3": "^3.0.6",
     "eventemitter3": "^2.0.2",
     "express": "^4.14.0",
