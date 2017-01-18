@@ -14,7 +14,7 @@ var DroneDetails = require('./DroneDetails.jsx')
 var Details = require('./Details.jsx');
 var Casualties = require('./Casualties.jsx');
 var YearFilter = require('./YearFilter.jsx');
-var GrandTotals = require('./GrandTotals.jsx');
+var GrandTotals = require('./grandTotals.jsx');
 
 
 function getActiveClass (path) {
