@@ -7,7 +7,7 @@ var Link = require('react-router').Link;
 
 var TotalsView = require('./TotalsView.jsx');
 var CivilianTotalsView = require ('./CivilianTotalsView.jsx');
-var GrandTotals = require('./GrandTotals.jsx');
+var GrandTotals = require('./grandTotals.jsx');
 var Casualties = require('./Casualties.jsx');
 var ShortSummary = require('./ShortSummary.jsx');
 var StatsFilter = require('./StatsFilter.jsx');
